@@ -1,6 +1,6 @@
 # GIT
 
-> Dieser Bereich beschreibt die Aktualisierung von Bestandteilen über ein Code Versionierungs System. Die Aktualisierung erfolgt dabei vorrangig über zwei Angaben: in der event.json und in einer gesonderten Datei namens `git.json'.
+> Dieser Bereich beschreibt die Aktualisierung von Bestandteilen über ein Code Versionierungs System. Die Aktualisierung erfolgt dabei vorrangig über zwei Angaben: in der event.json und in einer gesonderten Datei namens `git.json`.
 
 ## Einstellungen
 
@@ -15,7 +15,7 @@ type
 organization
 private
 
-Es wird als Basis immer github.com angenommen. Über die `organization` wird die Organisation in Github beschrieben (dies können auch private Konten sein). Die Einstellung `repository`beschreibt das eigentliche Repository, in dem die Quellen abgelegt sind.
+Es wird als Basis immer github.com angenommen. Über die `organization` wird die Organisation in Github beschrieben (dies können auch private Konten sein). Die Einstellung `repository` beschreibt das eigentliche Repository, in dem die Quellen abgelegt sind.
 
 ### Bundles
 
@@ -29,7 +29,7 @@ So ist in dem Verzeichnis `/event/test-event-de/` beispielsweise der Inhalt eine
 
 **Hinweis**: Da durch diese flexible Definition der Verzeichnisstrukturen das Risiko einer  Beeinflussung von dritten Events, Stories oder Quests besteht, wird ein Bundle nur in der Aufbauphase für vertrauensvolle Creators zugelassen.
 
-Für ein Bundle ist der Name des Repository weniger ausschlaggebend für die Ablage in dem Framework. Das Repository muss vom Typ `bundle` sein und das Repository muss mit der Zeichenkette `bundle-`beginnen. Die danachfolgende Bezeichnung kann frei gewählt werden. Für die Ablage sind die Verzeichnisnamen unterhalb der Verzeichisse `/event, `/story`und `/quest`entscheidend.
+Für ein Bundle ist der Name des Repository weniger ausschlaggebend für die Ablage in dem Framework. Das Repository muss vom Typ `bundle` sein und das Repository muss mit der Zeichenkette `bundle-`beginnen. Die danachfolgende Bezeichnung kann frei gewählt werden. Für die Ablage sind die Verzeichnisnamen unterhalb der Verzeichisse `/event, `/story` und `/quest` entscheidend.
 
 Beispiel:
 
@@ -46,7 +46,7 @@ repository: {
 
 #### Event
 
-Für ein Event ist der Name des Repository ausschlaggebend für die Ablage in dem Framework. Das Repository muss vom Typ `event` sein und das Repository muss mit der Zeichenkette `event-`beginnen. Die auf diese Zeichenette folgenden Bezeichnung beschreibt den internen Namen des Events.
+Für ein Event ist der Name des Repository ausschlaggebend für die Ablage in dem Framework. Das Repository muss vom Typ `event` sein und das Repository muss mit der Zeichenkette `event-` beginnen. Die auf diese Zeichenette folgenden Bezeichnung beschreibt den internen Namen des Events.
 
 Beispiel:
 
