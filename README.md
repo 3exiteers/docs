@@ -2,7 +2,7 @@
 
 The furture of exit game is open.
 
-!> In dieser Dokumentation wird unter Umständen an manchen Stelle noch aus Gründen der besseren Lesbarkeit das generische Maskulinum verwendet. Weibliche und anderweitige Geschlechteridentitäten werden dabei ausdrücklich mitgemeint, soweit es für die Aussage erforderlich ist.
+!> In dieser Dokumentation wird an manchen Stelle noch aus Gründen der besseren Lesbarkeit das generische Maskulinum verwendet. Weibliche und anderweitige Geschlechteridentitäten werden dabei ausdrücklich mitgemeint, soweit es für die Aussage erforderlich ist.
 
 # Beschreibung
 
