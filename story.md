@@ -176,13 +176,15 @@ Der Platzhalter `playarea` erzeugt einen Bereich mit interkagtiven Elementen. Di
 | default_option_resize | true | |
 | default_option_rotation | true | |
 
+  Jeder der nachfolgenden Parameter gilt für ein eingebundenes Elemente und ist durch einen Präfix `item#_` anzugeben. Beispiel: `item1_filename`, ìtem2_size`,. ... Alle Elemente mit einer identischen Nummer gehören zusammen.
+  
 | Parameter     | Wert          | Beschreibung |
 | ------------- |:-------------:| :----------- |
-| filename | ... | Dateiname des Element|
-| rotation | 0 | (abgelöst) #random |
-| size | | Prozentuale Größe des Elements |
-| left | 0 | (abgelöst) #random |
-| top | 0 | (abgelöst) #random |
-| option_drag | all | "all" \| "none" \| "x-axis" \| "y-axis" |
-| option_resize | true | |
-| option_rotation | true | |
+| item#_filename | ... | Dateiname des Element|
+| item#_rotation | 0 | (abgelöst) #random |
+| item#_size | | Prozentuale Größe des Elements |
+| item#_left | 0 | (abgelöst) #random |
+| item#_top | 0 | (abgelöst) #random |
+| item#_option_drag | all | "all" \| "none" \| "x-axis" \| "y-axis" |
+| item#_option_resize | true | |
+| item#_option_rotation | true | |
