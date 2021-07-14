@@ -190,7 +190,6 @@ Der Platzhalter `playarea` erzeugt einen Bereich mit interkagtiven Elementen. Di
 | item{id}_option_rotation | true | |
 
 
-
 ## [voice: ...]
 
 Der Platzhalter `voice` ermöglicht die Audio-Ausgabe von Text (text-to-speech). Der als Parameter angegebene Text wird hierbei über die Browser-Funktion des Spieldenden wiedergegeben. An der Stelle des Platzhalters wird eine Schaltfläche eingeblendet, mit die Ausgabe gestartet werden kann.
@@ -218,6 +217,7 @@ Folgende Einstellungen haben sich als ideale Einstellungen erwiesen. Für die ni
 Mit der Option `rate` kann die Geschwindigkeit beeinflusst werden. Mit `pitch` kann die Tonhöhe der Stimme beeinflusst werden. 
 
 | Bezeichnung     | Rate          | Pitch | 
+| ------------- |:-------------:| :----------- |
 | Anna normal| 1 | 1 |
 | Alter Mann | 0.5 | 0.1 |
 | "Rezepthinweise" | 1.4 | 0.5 |
