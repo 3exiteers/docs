@@ -176,15 +176,52 @@ Der Platzhalter `playarea` erzeugt einen Bereich mit interkagtiven Elementen. Di
 | default_option_resize | true | |
 | default_option_rotation | true | |
 
-  Jeder der nachfolgenden Parameter gilt für ein eingebundenes Elemente und ist durch einen Präfix `item#_` anzugeben. Beispiel: `item1_filename`, ìtem2_size`,. ... Alle Elemente mit einer identischen Nummer gehören zusammen.
+  Jeder der nachfolgenden Parameter gilt für ein eingebundenes Elemente und ist durch einen Präfix `item{id}}_` anzugeben. Beispiel: `item1_filename`, `item2_size`,... Alle Elemente mit einer identischen Nummer gehören zusammen.
   
 | Parameter     | Wert          | Beschreibung |
 | ------------- |:-------------:| :----------- |
-| item#_filename | ... | Dateiname des Element|
-| item#_rotation | 0 | (abgelöst) #random |
-| item#_size | | Prozentuale Größe des Elements |
-| item#_left | 0 | (abgelöst) #random |
-| item#_top | 0 | (abgelöst) #random |
-| item#_option_drag | all | "all" \| "none" \| "x-axis" \| "y-axis" |
-| item#_option_resize | true | |
-| item#_option_rotation | true | |
+| item{id}_filename | ... | Dateiname des Element|
+| item{id}_rotation | 0 | (abgelöst) #random |
+| item{id}_size | | Prozentuale Größe des Elements |
+| item{id}_left | 0 | (abgelöst) #random |
+| item{id}_top | 0 | (abgelöst) #random |
+| item{id}_option_drag | all | "all" \| "none" \| "x-axis" \| "y-axis" |
+| item{id}_option_resize | true | |
+| item{id}_option_rotation | true | |
+
+
+
+## [voice: ...]
+
+Der Platzhalter `voice` ermöglicht die Audio-Ausgabe von Text (text-to-speech). Der als Parameter angegebene Text wird hierbei über die Browser-Funktion des Spieldenden wiedergegeben. An der Stelle des Platzhalters wird eine Schaltfläche eingeblendet, mit die Ausgabe gestartet werden kann.
+
+**Hinweis**: Die Ausgabe kann (Stand: 07/2021) nicht interaktiv beendet werden. Hierzu ist bis zur Implementierung entsprechender Möglichkeiten die Seite neu zu laden  oder die Seite zu wechseln.
+
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+| label | ... | Beschriftung der Schaltfläche |
+| content | ... | Inhalt der Sprachausgabe |
+
+Für die Ausgabe können bis zu 10 Stimmen definiert werden, zu denen im `content`mit `!voice=>{id}!` gewechselt werden kann. `{id}`kann hierbei einen Wert von 0 bis 9 annehmen. Es werden für die Stimme die nachfolgenden Definitionen herangezogen.
+
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+| voice{id}_volume | 0..1 | Lautstärke der Wiedergabe |
+| voice{id}_rate | 0..2 | Geschwindigekit der Wiedergabe |
+| voice{id}_pitch | 1..10 | Tonhöhe der Wiedergabe |
+| voice{id}_language | de_DE | Sprache/Slang der Stimme |
+| voice{id}_voice | 0..x | Stimme (4=Deutsch) |
+| voice{id}_description | ... | Beschreibung der Stimme |
+
+Folgende Einstellungen haben sich als ideale Einstellungen erwiesen. Für die nicht gannten Einstellkungen wird Volume=1, Sprache =de_DE und Voice=4 angenommen. 
+
+Mit der Option `rate` kann die Geschwindigkeit beeinflusst werden. Mit `pitch` kann die Tonhöhe der Stimme beeinflusst werden. 
+
+| Bezeichnung     | Rate          | Pitch | 
+| Anna normal| 1 | 1 |
+| Alter Mann | 0.5 | 0.1 |
+| "Rezepthinweise" | 1.4 | 0.5 |
+| tba | 1 | 1 |
+| tba | 1 | 1 |
+| tba | 1 | 1 |
+
