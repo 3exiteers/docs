@@ -225,3 +225,18 @@ Mit der Option `rate` kann die Geschwindigkeit beeinflusst werden. Mit `pitch` k
 | tba | 1 | 1 |
 | tba | 1 | 1 |
 
+## Lobby
+
+Der Lobby-Modus ermöglicht die Spielenden nach der Regristrierung in einem gemeinsamen Raum (Kapitel) warten zu lassen. Erst wenn ein Lobby-Administrator die Lobby auflöst, werden alle Teilnehmer automatisch zu dem ersten Kapitel der Story geleitet.
+
+Die Defintionen für die iNhalte der Lobby lehnen sich an das Format der Inhaltsdefinitionen eines Kapitels an und werden in dem Zweig `lobby`-> `content` der `story.json` definiert. Die unter diesem Pfad enthaltenen Schlüssel-Wert-Paare werden dynamisch gelesen und in die entsprechenden Platzhalter der Templates eingefügt.
+
+Bekannte Platzhalter sind:
+
+| Platzhalter     | Beschreibung  |
+| ------------- |:-------------:|
+| header | Titel im Kopfbereich |
+| title | Titel im Inhaltsbereich |
+| body | Inhalt der Seite |
+
+Die Inhalte der Platzhalter werden gelesen und Platzhalter (u.a. Variablen oder dynamische Median-Inhalte) ersetzt.
