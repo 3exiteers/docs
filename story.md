@@ -225,6 +225,14 @@ Mit der Option `rate` kann die Geschwindigkeit beeinflusst werden. Mit `pitch` k
 | tba | 1 | 1 |
 | tba | 1 | 1 |
 
+## [fetch: ...]
+  
+Mit dem Fetch-Platzhalter werden alle Teammitglieder zu dem aktuellen Kapitel geholt, in dem sich der aufrufende Spielende befindet. Dadurch können Teammitglieder, die eine Quest nicht lösen können oder verspätet dem Spiel beitreten, zum aktuellen Kapitel geholt werden. Diese Funktion ist nur für Teammitglieder funktionsfähig, die sich mit dem identischen Teamcode registriert haben.
+  
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+| label | ... | Beschriftung des Links |
+  
 ## Lobby
 
 Der Lobby-Modus ermöglicht die Spielenden nach der Regristrierung in einem gemeinsamen Raum (Kapitel) warten zu lassen. Erst wenn ein Lobby-Administrator die Lobby auflöst, werden alle Teilnehmer automatisch zu dem ersten Kapitel der Story geleitet.
