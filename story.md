@@ -248,3 +248,27 @@ Bekannte Platzhalter sind:
 | body | Inhalt der Seite |
 
 Die Inhalte der Platzhalter werden gelesen und Platzhalter (u.a. Variablen oder dynamische Median-Inhalte) ersetzt.
+
+
+## [confetti: ...]
+  
+Mit dem Confetti-Platzhalter werden Konfetti-Partikel nach Anzeige der Website angezeigt. Die Darstellung kann mit folgenden Parametern angepasst werden: 
+  
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+|particleCount|50|Anzahl der Konfettis, mit denen gestartet werden soll
+|angle|90|Winkel, mit denen die Konfettis gestartet werden sollen. 90 Grad meint direkt nach oben.|
+|spread|45|How far off center the confetti can go, in degrees. 45 means the confetti will launch at the defined angle plus or minus 22.5 degrees.|
+|startVelocity|45|Angabe in Pixel, wie schnell die Konfettis vom Startpunkt aus starten.|
+|decay|0.9|How quickly the confetti will lose speed. Keep this number between 0 and 1, otherwise the confetti will gain speed. Better yet, just never change it.|
+|gravity|1|Angabe, wie schnell die Partikel sich absenken. 1 meint volle Gravitation, 0.5 meint halbe GRavitation, etc.|
+|drift|0|Angabe, wie stark zur Seite die Konfettis abdriften. Der Standard ist 0, was angibt, dass die Partikel direkt nach unten fallen. Negative Nummern  für Links und positive Nummer für rechts.|
+|ticks|200|How many times the confetti will move. This is abstract... but play with it if the confetti disappear too quickly for you.|
+|originx|0.5|Die x-Position auf der sichtbaren Seite, wobei 0 den linken Rand und 1 den rechten Rand meint. Angaben außerhalb dieses Bereichs möglich.|
+|originy|0.5|Die y-Position auf der sichtbaren Seite, wobei 0 den oberen Rand und 1 den unten Rand meint. Angaben außerhalb dieses Bereichs möglich.|
+|colors|Array<String>|An array of color strings, in the HEX format... you know, like ['#bada55', '...'].|
+|shapes|Array<String>|An array of shapes for the confetti. The possible values are square and circle. The default is to use both shapes in an even mix. You can even change the mix by providing a value such as ['circle', 'circle', 'square'] to use two third circles and one third squares.|
+|scalar|1|Scale factor for each confetti particle. Use decimals to make the confetti smaller. Go on, try teeny tiny confetti, they are adorable!|
+|zIndex|100|The confetti should be on top, after all. But if you have a crazy high page, you can set it even higher.|
+|disableForReducedMotion|false|Disables confetti entirely for users that prefer reduced motion. The confetti() promise will resolve immediately in this case.|
+  
