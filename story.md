@@ -4,6 +4,48 @@
 
 **TIPP**: Die Komplexität und der Umfang der Geschichte ist an den Spielenden auszurichten. Zu viel Text kann in einem Team mit verschiedenen Charaktären zu unterschiedlichen Spielgeschwindigkeiten führen. Dahe rist es ratsam, die Geschichte anhand der Veranstaltung unter Umständen unterschiedlich zu beschreiben.
 
+# Minimale und maximale Punktestände
+
+Für eine Geschichte können minimale und maximale Punktestände definiert werden, die nicht unter- bzw. überschritten werden können. Diese Angabe erfolgt in der `story.json` unter `point_limits` -> `min`, sowie `point_limits` -> `max`.
+
+Während die Spielenden Punkte erspielen kann der Punktestand durch verschiedene Aktionen unter bzw. über diese Definitionen gelangen. In diesem Fall wird der Punktestand auf das angegebene Limit begrenzt und der anzuwendende (und alle späteren) Aktionen , die zu einer Unter- oder Überschreitung führen, nicht gewertet. Der anzuwendende Malus oder Bonus wird auf den (Teil-)Wert reduziert, der zum Erreichen den Limits ausreicht. Ist das Limit bereits erreicht, wird der Malus bzw. Bonus auf den Wert Null reduziert.
+
+# Punkte für Aktionen
+
+Innerhalb von Geschichten können Punkte für bestimmte Aktionen vergeben werden.
+
+- Das erreichen eines Kapitels (meistens Bonus)
+- Das Nutzen von Hinweisen (meistens Malus)
+- Die Eingabe von nicht korrekten Lösungen (meistens Malus)
+
+Diese Malus- und Bonus-Werte können über folgende Einstellungen innerhalb der `story.json` unterhalb einer für eine angegebene `chapterid` definiert werden. Punkte verändern sich in der Regel nur beim ersten Auftreten des Ereignis, so dass den Teams kein Nachteil durch spätere Aufrufe oder Vorteile durch wiederholte Aufrufe entstehen. Ausnahme ist die inkorrekte Eingabe von Lösungen, die durch jeden Spielenden jederzeit erfolgen können.
+
+Bonuspunkte werden mit positiven Werten (zum Beispiel 1,4,8,100) angegeben, Maluspunkte mit negativen Werten (zum Beispiel -1, -4, -8, -100). 
+
+## Eintritt in Kapitel
+
+`chapter` -> `<chapterid>` -> `points` -> `enter`
+
+Der angegebene Wert wird auf den aktuellen Punktestand angewendet, wenn das erste Spielende des Teams das unter `<chapterid>` angegebene Kapitel erreicht. Nachfolgende Spielende verändern den Punktestand nicht.
+
+## Abruf von Hinweisen
+
+`chapter` -> `<chapterid>` -> `points` -> `hints` -> `<hintid>` ...
+
+Für die Nutzung des Hinweises `<hintid>` wirr der angegebene Wert auf den aktuellen Punktestand angewendet. Ist kein Wert in der `story.json` für einen existierenden Hinweis `<hintid>` angegeben, wird der in der angewendeten `querst.json` zu der `<hintid>`angegebene Punktewert auf den Punktestand angewendet.
+
+## Abruf eines Lösungshinweises
+
+`chapter` -> `<chapterid>` -> `points` -> `solution_hint`
+
+Ist der Wert `solution_hint` angegeben, wird für einen Hinweis, der mit `solution: true` angegeben wurde, dieser Wert auf den Punktestand angewendet. Ausnahme ist, dass unter `hints` -> `<hintid>` ein expliziter Wert angegeben wurde, der dann durch die explizite Angabe Gültigkeit hat.
+
+## Eingabe einer inkorrekten Lösung
+
+`chapter` -> `<chapterid>` -> `points` -> `incorrect_solution`
+
+Der Wert unter `incorrect_solution` wird immer dann angewendet, wenn ein Spielender des Teams eine inkorrekte Lösungseingabe vornimmt. Diese wird für das gesamte Team gewertet und kann beliebig oft durch jedes Teammitglied erfolgen. Dies birgt die Gefahr, den Punktestand ohne Kenntnis der anderen Teammitglieder zu verändern.
+
 # Timer
 
 In einem Chapter kann ein Timer für das Lösen der Quest angegeben werden. Dieser Timer wird als überlagernder Dialog in der oberen rechten Ecke des Browser-Fensters angezeigt. Folgende Einstellungsmöglichkeiten gibt es:

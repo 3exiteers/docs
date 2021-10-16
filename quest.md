@@ -6,15 +6,15 @@
 
 ### Mehrere valide Antwortmöglichkeiten
 
-Neben dem Feld `solution` ist die Angabe von mehreren frei einzugebenden Lösungsmöglichkeiten über das Feld `solutions` möglich. Dabei ergänzt `solutions` das Feld `solution` und bildet eine Liste von möglichen Eingabewerten. Dies kann zum Beispiel bei nicht eindeutigen Lösungen hilfreich sein, wenn zum Beispiel Operanden einer mathematischen Abfolge oder Singular/Plural nicht eindeutig für den Spieler sind. 
+Die Angabe von mehreren frei einzugebenden Lösungsmöglichkeiten zu einer Quest erfolgt über das Feld `solutions`. Dies kann zum Beispiel bei nicht eindeutigen Lösungen hilfreich sein, wenn zum Beispiel Operanden einer mathematischen Abfolge oder Singular/Plural nicht eindeutig für den Spieler sind. 
 
 | Parameter     | Standard          | Beschreibung |
 | ------------- |:-------------:| :----------- |
-| solutions | [...], [...], ... | Angabe einer Liste mit den validen Lösungen. Auf diese Lösungen werden die Regeln zur Harmonisierung angewendet. Durch die Angabe unterschielicher Lösungen können Variationen in der Lösung abgefangen werden, ohne das die exakte Schreibweise (z.B. bei mathematischen Operationen) strikt eingehalten werden müssen. |
+| solutions | [..., ..., ...] | Angabe einer Liste mit den validen Lösungen. Auf diese Lösungen werden die Regeln zur Harmonisierung angewendet. Durch die Angabe unterschiedlicher Lösungen können Variationen in der Lösung abgefangen werden, ohne das die exakte Schreibweise (z.B. bei mathematischen Operationen) strikt eingehalten werden müssen. |
 
 ### Optionen: Auswahl möglicher Antworten
 
-Dem Spieler kann eine vorgegeben Auswahl von Antworten bereitgestellt werden, aus denen die richtige Antwort ausgewählt werden muss. Die Angabe erfolgt in dem Feld `solution`einer Quest.
+Dem Spieler kann eine vorgegeben Auswahl von Antworten bereitgestellt werden, aus denen die richtige Antwort ausgewählt werden muss. Die Angabe erfolgt in dem Feld `solutions`einer Quest.
 
 Beispiel:
 
