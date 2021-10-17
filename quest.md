@@ -11,6 +11,24 @@ Die Angabe von mehreren frei einzugebenden Lösungsmöglichkeiten zu einer Quest
 | Parameter     | Standard          | Beschreibung |
 | ------------- |:-------------:| :----------- |
 | solutions | [..., ..., ...] | Angabe einer Liste mit den validen Lösungen. Auf diese Lösungen werden die Regeln zur Harmonisierung angewendet. Durch die Angabe unterschiedlicher Lösungen können Variationen in der Lösung abgefangen werden, ohne das die exakte Schreibweise (z.B. bei mathematischen Operationen) strikt eingehalten werden müssen. |
+| content | $ | Inhalt der Herausforderung |
+
+### Hinweise zu Herausforderungen
+
+Zu Herausforderungen können Hinweise angegeben werden, die von den Spielenden bei Bedarf abgerufen werden können. Die Einstellungen werden unter dem Knoten `hints` -> `<hintid>` vorgenommen. `<hintid>` ist dabei eine fortlaufende eindeutige ID des Hinweises, der die Reihenfolge der Hinweise beschreibt. Folgende Einstellungen werden unterstützt: 
+
+| Parameter     | Standard          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+| text | $ | Hinweistext |
+| points | # | Punkte, die der Hinweis kostet (Malus=negative Nummer, Bonus=positive Nummer) |
+| supportlevel | 0|1|2|3 | Level der Unterstützung des Hinweises (0=keine Unterstützung, 1=geringe Unterstützung, 2=hohe Unterstützung, 3=sehr hohe Unterstützung)  |
+| solution | true|false | Angabe, ob Hinwies die Lösung offenbart |
+
+**Hinweis**: Wird `solution:true` angegeben, wird beim Abruf dieses Hinweise der Spielende darauf hingewiesen, dass bei Anzeige des Hinweises die Lösung offenbart wird.
+
+#### Lösungstext
+
+In dem Parameter `text` kann die Variable `%%%variable:solution%%%` genutzt werden, um den ersten Eintrag aus der Option `solutions` anzuzeigen.
 
 ### Optionen: Auswahl möglicher Antworten
 
