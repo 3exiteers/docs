@@ -20,7 +20,7 @@ Innerhalb von Geschichten können Punkte für bestimmte Aktionen vergeben werden
 
 Diese Malus- und Bonus-Werte können über folgende Einstellungen innerhalb der `story.json` unterhalb einer für eine angegebene `chapterid` definiert werden. Punkte verändern sich in der Regel nur beim ersten Auftreten des Ereignis, so dass den Teams kein Nachteil durch spätere Aufrufe oder Vorteile durch wiederholte Aufrufe entstehen. Ausnahme ist die inkorrekte Eingabe von Lösungen, die durch jeden Spielenden jederzeit erfolgen können.
 
-Bonuspunkte werden mit positiven Werten (zum Beispiel 1,4,8,100) angegeben, Maluspunkte mit negativen Werten (zum Beispiel -1, -4, -8, -100). 
+Bonuspunkte werden mit positiven Werten (zum Beispiel 1,4,8,100) angegeben, Maluspunkte mit negativen Werten (zum Beispiel -1, -4, -8, -100).
 
 ## Eintritt in Kapitel
 
@@ -36,9 +36,14 @@ Für die Nutzung des Hinweises `<hintid>` wirr der angegebene Wert auf den aktue
 
 ## Abruf eines Lösungshinweises
 
+`chapter` -> `<chapterid>` -> `points` -> `nonsolution_hint`
+
+Ist der Wert `nonsolution_hint` angegeben, wird für einen Hinweis, für den nicht `solution: true` (entweder ist der Parameter nicht angegeben oder explizit auf `false` gesetzt) angegeben wurde, dieser Wert auf den Punktestand angewendet. Diese Angabe überschreibt alle übrigen Punkteangaben aus der `quest.json` und der `story.json`.
+
+
 `chapter` -> `<chapterid>` -> `points` -> `solution_hint`
 
-Ist der Wert `solution_hint` angegeben, wird für einen Hinweis, der mit `solution: true` angegeben wurde, dieser Wert auf den Punktestand angewendet. Ausnahme ist, dass unter `hints` -> `<hintid>` ein expliziter Wert angegeben wurde, der dann durch die explizite Angabe Gültigkeit hat.
+Ist der Wert `solution_hint` angegeben, wird für einen Hinweis, der mit `solution: true` angegeben wurde, dieser Wert auf den Punktestand angewendet. Diese Angabe überschreibt alle übrigen Punkteangaben aus der `quest.json` und der `story.json`.
 
 ## Eingabe einer inkorrekten Lösung
 
