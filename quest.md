@@ -33,3 +33,4 @@ Folgende Angaben sind erforderlich/möglich:
 | label | ... | Gibt die Beschriftung der Auswahl an |
 | solution | false | Gibt an, ob dieses Elemente eine gültige Lösung (`solution:true`) darstellt. Entspricht diese Option keiner richtigen Lösung, kann die Angabe von `solution` auch entfallen.|
 
+Die Lösung kann innerhalb eines Tipps mit dem Platzhalter `%%%variable:solution%%%` dynamisch eingebettet werden. Der Platzhalter wird mit dem ersten Elemente der Liste gültiger Lösungen aus dem Feld `solutions:[...,...]` ersetzt. Diese Variable ermöglicht eine gleichbleibende Definition über verschiedene Quests, in der lediglich eine valide Lösungsoption dargestellt wird.

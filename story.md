@@ -75,7 +75,7 @@ Beispiel:
 
 ## {variable: }
 
-Mit dem Platzhalter `variable` können Inhalte aus der Event-Definition in die Ausgabe eingebracht werden. Hierbei wird zuerst versucht die Variable aus der Team-Definition (event.json->team->teacode->variables->`variable`:`inhalt`) zu ermitteln. Wenn dies nicht erfolgreich ist, wird die Variable versucht aus der Event-Definition (event.json->variables->`variable`:`inhalt`) zu ermitteln.
+Mit dem Platzhalter `variable` können Inhalte aus der Event-Definition in die Ausgabe eingebracht werden. Hierbei wird zuerst versucht die Variable aus der Team-Definition (event.json->team->teamcode->variables->`variable`:`inhalt`) zu ermitteln. Wenn dies nicht erfolgreich ist, wird die Variable versucht aus der Event-Definition (event.json->variables->`variable`:`inhalt`) zu ermitteln.
 
 Der Platzhalter `{variable:master}` bewirkt, dass die Variable `master` gesucht wird und der gesamte Platzhalter ({...}) mit dem Inhalt `inhalt` ersetzt wird.
 
@@ -90,6 +90,7 @@ Ergänzend zu den eigendefinierten Variablen sind auch interne Variablen definie
 | public_teamscodes | Listet alle öffentlichen Teamcodes auf (funktioniert auch in event.json => registration => body) | story, event |
 | path_story | Pfad zum aktuellen Story-Verzeichnis | story |
 |path_quest | Pfad zur aktuellen Quest | quest |
+|solution | Lösung der Quest (erster Eintrag der Liste) | quest |
 
 # Medieninhalte
 
@@ -277,9 +278,9 @@ Mit dem Fetch-Platzhalter werden alle Teammitglieder zu dem aktuellen Kapitel ge
   
 ## Lobby
 
-Der Lobby-Modus ermöglicht die Spielenden nach der Regristrierung in einem gemeinsamen Raum (Kapitel) warten zu lassen. Erst wenn ein Lobby-Administrator die Lobby auflöst, werden alle Teilnehmer automatisch zu dem ersten Kapitel der Story geleitet.
+Der Lobby-Modus ermöglicht die Spielenden nach der Registrierung in einem gemeinsamen Raum (Kapitel) warten zu lassen. Erst wenn ein Lobby-Administrator die Lobby auflöst, werden alle Teilnehmer automatisch zu dem ersten Kapitel der Story geleitet.
 
-Die Defintionen für die iNhalte der Lobby lehnen sich an das Format der Inhaltsdefinitionen eines Kapitels an und werden in dem Zweig `lobby`-> `content` der `story.json` definiert. Die unter diesem Pfad enthaltenen Schlüssel-Wert-Paare werden dynamisch gelesen und in die entsprechenden Platzhalter der Templates eingefügt.
+Die Definitionen für die iNhalte der Lobby lehnen sich an das Format der Inhaltsdefinitionen eines Kapitels an und werden in dem Zweig `lobby`-> `content` der `story.json` definiert. Die unter diesem Pfad enthaltenen Schlüssel-Wert-Paare werden dynamisch gelesen und in die entsprechenden Platzhalter der Templates eingefügt.
 
 Bekannte Platzhalter sind:
 
