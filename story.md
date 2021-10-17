@@ -2,7 +2,7 @@
 
 > Die Geschichte des Exit Game ist die inhaltliche Erzählung, mit denen sich die Spielenden fortbewegen.
 
-**TIPP**: Die Komplexität und der Umfang der Geschichte ist an den Spielenden auszurichten. Zu viel Text kann in einem Team mit verschiedenen Charaktären zu unterschiedlichen Spielgeschwindigkeiten führen. Dahe rist es ratsam, die Geschichte anhand der Veranstaltung unter Umständen unterschiedlich zu beschreiben.
+**TIPP**: Die Komplexität und der Umfang der Geschichte ist an den Spielenden auszurichten. Zu viel Text kann in einem Team mit verschiedenen Charakteren zu unterschiedlichen Spielgeschwindigkeiten führen. Daher ist es ratsam, die Geschichte anhand der Veranstaltung unter Umständen unterschiedlich zu beschreiben.
 
 # Minimale und maximale Punktestände
 
