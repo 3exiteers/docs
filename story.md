@@ -320,3 +320,13 @@ Mit dem Confetti-Platzhalter werden Konfetti-Partikel nach Anzeige der Website a
 |zIndex|100|The confetti should be on top, after all. But if you have a crazy high page, you can set it even higher.|
 |disableForReducedMotion|false|Disables confetti entirely for users that prefer reduced motion. The confetti() promise will resolve immediately in this case.|
   
+
+
+## [snow: ...]
+  
+Mit dem Snow-Platzhalter werden Schneeflocken zur Anzeige der Website angezeigt. Die Darstellung kann mit folgenden Parametern angepasst werden: 
+  
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+|particleCount|200|Anzahl der Schneeflocken, mit denen gestartet werden soll. Mit der Anzahl der Partikel erhöht sich die Belastung auf den anzeigenden Systemen. Es wird empfohlen, die Anzahl NICHT über 300 einzustellen!
+  
