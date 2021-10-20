@@ -32,7 +32,9 @@ Der angegebene Wert wird auf den aktuellen Punktestand angewendet, wenn das erst
 
 `chapter` -> `<chapterid>` -> `points` -> `hints` -> `<hintid>` ...
 
-Für die Nutzung des Hinweises `<hintid>` wirr der angegebene Wert auf den aktuellen Punktestand angewendet. Ist kein Wert in der `story.json` für einen existierenden Hinweis `<hintid>` angegeben, wird der in der angewendeten `querst.json` zu der `<hintid>`angegebene Punktewert auf den Punktestand angewendet.
+Für die Nutzung des Hinweises `<hintid>` wirr der angegebene Wert auf den aktuellen Punktestand angewendet. Ist kein Wert in der `story.json` für einen existierenden Hinweis `<hintid>` angegeben, wird der in der angewendeten `querst.json` zu der `<hintid>`angegebene Punktewert auf den Punktestand angewendet. 
+
+Ergänzend kann der Wert `null` angegeben werden, um die Punkte für einen Hinweis aus der `quest.json` zu nutzen. Dies kann hilfreich sein, wenn zum Beispiel der erste Hinweis mit `null` definiert wird, der zweite aber nur einem Maluswert. In diesem Fall kann aus die generische Angabe der Maluspunkte durch `nonsolution_hint`/`solution_hint` verzichtet werden.
 
 ## Abruf eines Lösungshinweises
 
