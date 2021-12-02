@@ -11,7 +11,17 @@ Die Angabe von mehreren frei einzugebenden Lösungsmöglichkeiten zu einer Quest
 | Parameter     | Standard          | Beschreibung |
 | ------------- |:-------------:| :----------- |
 | solutions | [..., ..., ...] | Angabe einer Liste mit den validen Lösungen. Auf diese Lösungen werden die Regeln zur Harmonisierung angewendet. Durch die Angabe unterschiedlicher Lösungen können Variationen in der Lösung abgefangen werden, ohne das die exakte Schreibweise (z.B. bei mathematischen Operationen) strikt eingehalten werden müssen. |
-| content | $ | Inhalt der Herausforderung |
+| body | ... | Bereich für Angaben zur Anzeige der Herausforderung |
+
+### Inhalte der Anzeige
+
+Für die Anzeige der Inhalte der Herausforderung wird der Abschnitt `content` genutzt, der verschiedene Unterelemente verwendet. Notwendig ist nur `body` um die Aufgabe dem Spielenden zu präsentieren. Die übrigen Angaben sind optional und brauchen nicht angegeben zu werden. Es wird empfohlen, nicht benötigte ELemente nicht anzugeben, um so die Komplexität für den Spielenden gering zu halten und Standards zu nutzen.
+
+| Parameter     | Standard          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+| body | $ | Inhalt der Herausforderung |
+| solutiontitle | $ | Überschrift des Eingabefeldes für die Lösung |
+| solutionplaceholder | $ | Platzhalter im Eingabefeld für die Lösung (wird bei Eingabe durch Spielenden überschrieben) |
 
 ### Hinweise zu Herausforderungen
 
