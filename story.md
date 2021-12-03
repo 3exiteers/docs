@@ -341,4 +341,6 @@ Mit dem Snow-Platzhalter werden Schneeflocken zur Anzeige der Website angezeigt.
 | ------------- |:-------------:| :----------- |
 |url|$|Link, der aufgerufen werden soll|
 |description|$|Beschreibung, die für den Link angezeigt werden soll. Wenn diese Angabe fehlt, wird anstelle dessen die Angabe unter ?url` verwendet|
+|target|$|Name des Zielfensters, das bei Aufruf der `url` verwendet werden soll. Sofern diese Angabe fehlt oder leer ist, wird `_blank` verwendet|
+|class|$|CSS-Klasse, die bei Anzeige des Links verwendet werden soll|
 
