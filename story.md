@@ -325,7 +325,6 @@ Mit dem Confetti-Platzhalter werden Konfetti-Partikel nach Anzeige der Website a
 |disableForReducedMotion|false|Disables confetti entirely for users that prefer reduced motion. The confetti() promise will resolve immediately in this case.|
   
 
-
 ## [snow: ...]
   
 Mit dem Snow-Platzhalter werden Schneeflocken zur Anzeige der Website angezeigt. Die Darstellung kann mit folgenden Parametern angepasst werden: 
@@ -334,3 +333,12 @@ Mit dem Snow-Platzhalter werden Schneeflocken zur Anzeige der Website angezeigt.
 | ------------- |:-------------:| :----------- |
 |particleCount|200|Anzahl der Schneeflocken, mit denen gestartet werden soll. Mit der Anzahl der Partikel erhöht sich die Belastung auf den anzeigenden Systemen. Es wird empfohlen, die Anzahl NICHT über 300 einzustellen!
   
+## [link: ...]
+  
+Mit dem Snow-Platzhalter werden Schneeflocken zur Anzeige der Website angezeigt. Die Darstellung kann mit folgenden Parametern angepasst werden: 
+  
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+|url|$|Link, der aufgerufen werden soll|
+|description|$|Beschreibung, die für den Link angezeigt werden soll. Wenn diese Angabe fehlt, wird anstelle dessen die Angabe unter ?url` verwendet|
+
