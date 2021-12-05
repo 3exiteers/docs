@@ -150,8 +150,10 @@ Es wird eine Bilddatei eingebunden.
 | Parameter     | Wert          | Beschreibung |
 | ------------- |:-------------:| :----------- |
 | description | ... | Beschreibung der Bilddatei |
+| id | ... | ID der Bilddatei (ist unter anderem für den `magnify` Platzhalter erforderlich) |
 | width | ... | Breite der Bilddatei |
 | credits | ... | Hinweise zu Autoren oder Copyrights |
+| vignette | true, false | Gibt an, ob das Bild mit einer Vignette angezeigt werden soll |
 
 ## [audio: ...]
 
@@ -335,7 +337,7 @@ Mit dem Snow-Platzhalter werden Schneeflocken zur Anzeige der Website angezeigt.
   
 ## [link: ...]
   
-Mit dem Snow-Platzhalter werden Schneeflocken zur Anzeige der Website angezeigt. Die Darstellung kann mit folgenden Parametern angepasst werden: 
+Mit dem Link-Platzhalter wird ein Link dargestellt, der die angegebene URL in einem separaten Fenster aufruf. Vor dem Link ist ein Icon eingeblendet, um den Aufruf eines externen Links deutlich zu machen.
   
 | Parameter     | Wert          | Beschreibung |
 | ------------- |:-------------:| :----------- |
@@ -344,3 +346,13 @@ Mit dem Snow-Platzhalter werden Schneeflocken zur Anzeige der Website angezeigt.
 |target|$|Name des Zielfensters, das bei Aufruf der `url` verwendet werden soll. Sofern diese Angabe fehlt oder leer ist, wird `_blank` verwendet|
 |class|$|CSS-Klasse, die bei Anzeige des Links verwendet werden soll|
 
+## [magnify: ...]
+  
+Mit dem `magnify` Platzhalter wird auf einer angegeben Bilddatei eine Lupen-Funktion angeboten, mit der Teile der Bilddatei vergrößert dargestellt werden können. Mit Hilfe des Mausrads besteht zudem die Möglichkeit den vorgegebenen Zoom-Level zu verändern. Die Zu Grunde liegende Bilddatei sollte größer dimensioniert sein, damit der höhere Zoom weniger Pixelfragmente darstellt.
+  
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+|target|$|ID der Bilddatei, für die der Effekt angezeigt werden soll (`id`-Parameter des `image` Platzhalter|
+|scale|#|Zoom-Level, der initial verwendet werden soll|
+|width|#|Breite der Lupe in Pixel|
+|height|#|Höhe der Lupe in Pixel|
