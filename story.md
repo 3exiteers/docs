@@ -348,7 +348,7 @@ Mit dem Link-Platzhalter wird ein Link dargestellt, der die angegebene URL in ei
 
 ## [magnify: ...]
   
-Mit dem `magnify` Platzhalter wird auf einer angegeben Bilddatei eine Lupen-Funktion angeboten, mit der Teile der Bilddatei vergrößert dargestellt werden können. Mit Hilfe des Mausrads besteht zudem die Möglichkeit den vorgegebenen Zoom-Level zu verändern. Die Zu Grunde liegende Bilddatei sollte größer dimensioniert sein, damit der höhere Zoom weniger Pixelfragmente darstellt.
+Mit dem `magnify` Platzhalter wird auf einer angegeben Bilddatei eine Lupen-Funktion angeboten, mit der Teile der Bilddatei vergrößert dargestellt werden können. Mit Hilfe des Mausrads besteht zudem die Möglichkeit den vorgegebenen Zoom-Level zu verändern (bei `wheelsupport:true`). Die Zu Grunde liegende Bilddatei sollte größer dimensioniert sein, damit der höhere Zoom weniger Pixelfragmente darstellt.
   
 | Parameter     | Wert          | Beschreibung |
 | ------------- |:-------------:| :----------- |
@@ -356,3 +356,4 @@ Mit dem `magnify` Platzhalter wird auf einer angegeben Bilddatei eine Lupen-Funk
 |scale|#|Zoom-Level, der initial verwendet werden soll|
 |width|#|Breite der Lupe in Pixel|
 |height|#|Höhe der Lupe in Pixel|
+|wheelsupport| true, false |Gibt an, ab das Mausrad zum Ändern der `scale` genutzt werden darf. Default: false.|
