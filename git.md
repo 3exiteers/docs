@@ -24,7 +24,11 @@ Ein Repository mit den Markern für eine Quest (z.B. `quest-` oder `.quest`) bei
 
 #### style
 
-Ein Repository mit den Markern für Stylesheets (z.B. `style-` oder `.style`) beinhaltet alle Inhalte für die Stylesheet-Definition. Hierbei ist für ein in das Framework einbindbare Stylesheet die Datei `style.json``zwingend erforderlich. Ergänzende Dateien (z.B. Grafiken) könnend em Repository beigefügt werden. Die Referenzierung innerhalb der Stylesheets kann mit Platzhaltern erfolgen, die nach dem Import einmalig in die Pfade auf dem Server übersetzt werden.
+Ein Repository mit den Markern für Stylesheets (z.B. `style-` oder `.style`) beinhaltet alle Inhalte für die Stylesheet-Definition. Hierbei ist für ein in das Framework einbindbare Stylesheet die Datei `style.json` zwingend erforderlich. 
+
+Eine Style-Definition ist an eine Storyx gebunden und wird unter einem identischen Namen von dem Framework erwartet!
+
+Ergänzende Dateien (z.B. Grafiken) können dem Repository beigefügt werden. Die Referenzierung innerhalb der Stylesheets kann mit Platzhaltern erfolgen, die nach dem Import einmalig in die Pfade auf dem Server übersetzt werden.
 
 | Parameter     | Beschreibung |
 | ------------- |:----------- |
