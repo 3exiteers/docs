@@ -2,6 +2,7 @@
 - [Event](event)
 - [Story](story)
 - [Quest](quest)
+- [Creator](creator)
 - [Git](git)
 - [Git_old](git_old)
 - **Links**
