@@ -93,7 +93,11 @@ Ergänzend zu den eigendefinierten Variablen sind auch interne Variablen definie
 
 | Variable | Beschreibung | Gültig für |
 | ------------- |:------------- | :------------ |
-| points | Punktestand des Teams | story |
+| team_points | Punktestand des Teams | story |
+| team_chapters | Absolvierte Kapitel des Teams | story |
+| team_solutions | Gesamtanzahl der bisher eingegebenen Lösungsversuche des Teams | story |
+| team_hints | Gesamtanzahl der in Anspruch genommenen Hinweise des Teams | story |
+| team_time | Spielzeit des Teams (im Format hh:mm:ss). Es wird nur die beste Zeit des Teams gewertet, d.h. spätere oder wiederholte Aufrufe von Kapiteln werden nicht gewertet | story |
 | teamcode | Teamcode des Teams | story |
 | teamname | Name (Bezeichnung) des Teams | story |
 | public_teamscodes | Listet alle öffentlichen Teamcodes auf (funktioniert auch in event.json => registration => body) | story, event |
