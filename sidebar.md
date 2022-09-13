@@ -2,6 +2,8 @@
 - [Event](event)
 - [Story](story)
 - [Quest](quest)
+- [Actions](actions)
+- [Preconditions] (preconditions)
 - [Creator](creator)
 - [Git](git)
 - [Git_old](git_old)
