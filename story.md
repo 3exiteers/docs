@@ -201,16 +201,16 @@ Folgende Einstellungen sind möglich:
 
 Der Platzhalter `handout` stellt ein angegebenes Dokument als Download-Link dar. Das Dokument wird als Link, welcher sich in einem gesonderten Fenster öffnent, dargerstellt.
 
-**HINWEIS**: Die Option `merge` stellt der Handout ein PDF dar, welches sich aus den in der Story angegebenen Quests die jeweiligen Handouts ermittelt und in einem dynamisch zusammengesetzten Handout bereitstellt. Dadurch können Handout-Informationen (z.B. Teile eines Rätsels) zu der jeweiligen Quest angegeben werden, die dann gesamtheitlich bei Start eines Spiels dem Spieler als Download angeboten werden. Die Handouts werden dynamisch auf Basis einer eindeutigen ID zum Download angeboten. Die Erzeugung erfolgt immer sobald sich der Umfang der einzubindenden Dateien oder der Inhalt einer der eingebundenen Dateien ändert. Sind die Inhalte unverändert, erfolgt keine Neuerzeugung der zum Download angebotenen Handout-Datei.
+**HINWEIS**: Über die Option `merge` stellt der Platzhalter `handout` ein PDF dar, welches sich aus der Story und den in der `Story` referenzierten `Quests` die jeweiligen Handouts ermittelt und in einem dynamisch zusammengesetzten Handout bereitstellt. Dadurch können Handout-Informationen (z.B. Teile eines Rätsels) zu der jeweiligen Quest angegeben werden, die dann gesamtheitlich bei Start eines Spiels dem Spieler als Download angeboten werden. Die Handouts werden dynamisch auf Basis einer eindeutigen ID zum Download angeboten. Die Erzeugung der Handout-Datei und ihrer ID erfolgt immer sobald sich der Umfang der einzubindenden Dateien oder der Inhalt einer der eingebundenen Dateien ändert. Sind die Inhalte unverändert, erfolgt keine Neuerzeugung der zum Download angebotenen Handout-Datei. Diese steht damit dann umgehend zum Download zur Verfügung.
 
-Werden keine Dokumente gefunden oder enthält das zusammengesetzte Dokumente keine Seiten, wird die Datei nicht zum Download angeboten und der Platzhalter aus der Anzeige gelöscht.
+Werden keine Handout-Dokumente oder -Bestandteile gefunden oder enthält das zusammengesetzte Dokumente keine Seiten, wird die Datei nicht zum Download angeboten und der Platzhalter aus der Anzeige gelöscht.
 
 | Parameter     | Wert          | Beschreibung |
 | ------------- |:-------------:| :----------- |
 | description | ... | Die Description beschreibt den angezeigten Text für den Download-Link der PDF-Datei. Diese Angabe wird in den Metadaten der PDF auch für den Titel und das Thema gesetzt. |
 | credits | ... | Die Credits beschreiben in den Metadaten der PDF den Author. |
 | type | pdf | Gibt an, welchen Typ die angezeigte Mediendatei haben soll. Hier wird bisher nur PDF unterstützt. |
-| merge | true | Gibt an, ob aus referenzierten Quests der Story die in den Quest-Verzeichnissen enthaltenen `handout.pdf` in einer PDF-Datei zusammengetragen werden sollen. Ist in der Story ebenfalls eine `handout.pdf` enthalten, wird diese als Deckblatt verwendet. Die Quest werden in der Reihenfolge innerhalb der Story integriert. |
+| merge | true | Gibt an, ob aus referenzierten Quests der Story die in den Quest-Verzeichnissen enthaltenen `handout.pdf` in einer PDF-Datei zusammengetragen werden sollen. Ist in der Story ebenfalls eine `handout.pdf` enthalten, wird diese als Deckblatt verwendet. Die Handouts der `Quest` werden nach dem Deckplatt in der Reihenfolge ihrer Einbindung in der `Story` integriert. Ist in der Story zudem eine `handout_end.pdf` Datei enthalten, wird diese am Ende des zusammengestellten PDF eingefügt. Dies kann zum Beispiel für Abschlussseiten mit Adress-, Kontakt- oder Copyright-Angaben genutzt werden. |
 | icon | true | Zeigt das Icon standardmäßig für das Handout an. Die Anzeige des Icon kann mit `false` ausgeblendet werden. |
 
 ## [playarea: ...]
