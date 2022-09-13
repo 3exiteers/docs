@@ -71,7 +71,7 @@ In einem Chapter kann ein Timer für das Lösen der Quest angegeben werden. Dies
 
 # Platzhalter
 
-**HINWEIS**: Platzhalter können sowohl in Story als auch Event eingesetzt werden.
+**HINWEIS**: Platzhalter können sowohl in Story als auch Event eingesetzt werden. Platzhalter implementieren Features in eine `Story` oder eine `Quest`.
 
 ## Grundsätzlicher Aufbau
 
