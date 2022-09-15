@@ -290,7 +290,32 @@ Mit dem Fetch-Platzhalter werden alle Teammitglieder zu dem aktuellen Kapitel ge
 | Parameter     | Wert          | Beschreibung |
 | ------------- |:-------------:| :----------- |
 | label | ... | Beschriftung des Links |
+
+## [html: ...]
   
+Mit dem `html`-Platzhalter wird HTML-Code in die Seite eingebunden. 
+  
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+| content | ... | HTML-Code |
+| filename | ... | Lädt eine externe Datei mit dem HTML-Code |
+| raw | false | definiert, dass der HTML-Code im Rohformat dargestellt wird |
+| replace | true | Ersetzt im HTML-Code enthaltene Platzhalter |
+
+
+## [markdown: ...]
+  
+Mit dem `markdown`-Platzhalter wird Markdown-Code in die Seite eingebunden. 
+  
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+| content | ... | HTML-Code |
+| filename | ... | Lädt eine externe Datei mit dem HTML-Code |
+| raw | false | definiert, dass der HTML-Code im Rohformat dargestellt wird |
+| replace | true | Ersetzt im HTML-Code enthaltene Platzhalter |
+
+Weitere Details über den Syntach können beispielsweise über die externe Übersicht bei [Daring Fireball](https://daringfireball.net/projects/markdown/syntax) als Syntax-Referenz eingesehen werden.
+
 ## Lobby
 
 Der Lobby-Modus ermöglicht die Spielenden nach der Registrierung in einem gemeinsamen Raum (Kapitel) warten zu lassen. Erst wenn ein Lobby-Administrator die Lobby auflöst, werden alle Teilnehmer automatisch zu dem ersten Kapitel der Story geleitet.
