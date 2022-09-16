@@ -22,6 +22,7 @@ Für die Anzeige der Inhalte der Herausforderung wird der Abschnitt `content` ge
 | body | $ | Inhalt der Herausforderung |
 | solutiontitle | $ | Überschrift des Eingabefeldes für die Lösung |
 | solutionplaceholder | $ | Platzhalter im Eingabefeld für die Lösung (wird bei Eingabe durch Spielenden überschrieben) |
+| solutionvalue | $ | Vorgegebener Text im Eingabefeld für die Lösung (typischerweise als Hinweis oder bei sogenannten 'Ask'-Quests die vorherige Benutzereingabe oder der Wert einer Variablen) |
 
 ### Hinweise zu Herausforderungen
 
