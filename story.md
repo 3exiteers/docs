@@ -158,6 +158,18 @@ Es wird eine Bilddatei eingebunden.
 | width | ... | Breite der Bilddatei |
 | credits | ... | Hinweise zu Autoren oder Copyrights |
 | vignette | true, false | Gibt an, ob das Bild mit einer Vignette angezeigt werden soll |
+| optimize | true, false | Gibt an, ob das Bild für Geräte mit geringeren Bildschirmauflösungen optimiert werden soll. Standardeinstellung ist `true`. Die Optimierung kann bewusst mit angabe `{optimize:false}` ausgeschaltet werden. |
+
+Für die Grafiken können ergänzend zu der Originalversion auch Varianten mit unterschiedlichen Pixelbreiten bereitgestellt werden, die auf Geräten bereitgestellt werden, deren maximale Bildschirmbreite den nachfolgenden Angaben entspricht. Dem Dateinamen wird die Pixelbreite angefügt. Die Angaben beziehen sich auf eine beispielhafte Datei mit der Dateinamen-Angabe `quest.png`:
+
+| Maximale Bildschirmbreite | Pixelbreite Bild | Dateiname |
+| ------------- |:-------------:| :----------- |
+| 1200 | 1140 | quest1140.png |
+| 992 | 960 | quest960.png |
+| 768 | 720 | quest720.png |
+| 576 | 540 | quest540.png |
+
+Die Dateien werden in der bereitgestellten HTML-Ausgabe nur eingebunden, sofern diese als Datei bereitstehen. Diese Optimierung kann bewusst durch den Bereitsteller durch Angabe `optimize:false` ausgeschaltet werden.
 
 ## [audio: ...]
 
