@@ -162,14 +162,16 @@ Es wird eine Bilddatei eingebunden.
 
 Für die Grafiken können ergänzend zu der Originalversion auch Varianten mit unterschiedlichen Pixelbreiten bereitgestellt werden, die auf Geräten bereitgestellt werden, deren maximale Bildschirmbreite den nachfolgenden Angaben entspricht. Dem Dateinamen wird die Pixelbreite angefügt. Die Angaben beziehen sich auf eine beispielhafte Datei mit der Dateinamen-Angabe `quest.png`:
 
-| Maximale Bildschirmbreite | Pixelbreite Bild | Dateiname |
+| Maximale Bildschirmbreite | Pixelbreite Bild | Dateiname (Beispiel) |
 | ------------- |:-------------:| :----------- |
 | 1200 | 1140 | quest1140.png |
 | 992 | 960 | quest960.png |
 | 768 | 720 | quest720.png |
 | 576 | 540 | quest540.png |
 
-Die Dateien werden in der bereitgestellten HTML-Ausgabe nur eingebunden, sofern diese als Datei bereitstehen. Diese Optimierung kann bewusst durch den Bereitsteller durch Angabe `optimize:false` ausgeschaltet werden.
+Überschreitet die Bildschirmauflösung die hier angegebenen höchten Wert, wird die ursprünglich angegebene Grafikdatei vom Broweser des Nutzenden geladen und dargestellt. Der Browser des Nutzenden entscheidet dann, welche der Grafiken geladen wird. In jedem Fall steht die ursprünglich angegebene Datei bereit, so dass immer eine Grafik angezeigt werden sollte.
+
+Die Dateien werden in der bereitgestellten HTML-Code nur eingebunden, sofern diese als Datei bereitstehen. Diese Optimierung kann bewusst durch den Bereitsteller durch Angabe `optimize:false` ausgeschaltet werden.
 
 ## [audio: ...]
 
