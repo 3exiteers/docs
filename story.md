@@ -105,6 +105,21 @@ Ergänzend zu den eigendefinierten Variablen sind auch interne Variablen definie
 |path_quest | Pfad zur aktuellen Quest | quest |
 |solution | Lösung der Quest (erster Eintrag der Liste) | quest |
 
+#### Sub-Variable
+
+Eine Sub-Variable wird als `[...]` innerhalb einer Variablen-Ersetzung angegeben. So können verschachtelte Variablen eingesetzt werden, die sich anhand des Wertes anderer Variablen ergeben. Als Beispiel sei eine Variable genannt, die im Laufe der Geschichte aktualisiert wird, im Inhalt aber eine feste Definition als Variable angegeben wurde. Beispiel:
+
+```
+"chapter" = "1",
+"content_chapter" = "%%%variable:content_[chapter]%%%"
+"content_1": "This is chapter %%%variable:chapter%%% and you have started your journey",
+"content_2": "This is chapter %%%variable:chapter%%%. You have reached the next chapter",
+"content_3": "This is the last chapter %%%variable:chapter%%%. You have finished your journey"
+```
+
+Die Variable `chapter` wird während des Fotschritts aktualisiert (z.B. durch `action`) und verändert dadurch die Variable `content_chapter`. Diese wiederum bewirkt durch die Angabe einer Sub-Variable, dass je nach Inhalt der Variable `chapter` entweder die Inhalte aus Variable `content_1`, `content_2` oder `content_3`  eingesetzt werden.
+
+
 # Medieninhalte
 
 Die unterschiedlichen Medieninhalte können durch einen Platzhalter eingebettet werden. Das Format lautet:
