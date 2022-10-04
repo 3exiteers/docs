@@ -417,3 +417,13 @@ Mit dem `magnify` Platzhalter wird auf einer angegeben Bilddatei eine Lupen-Funk
 |width|#|Breite der Lupe in Pixel|
 |height|#|Höhe der Lupe in Pixel|
 |wheelsupport| true, false |Gibt an, ab das Mausrad zum Ändern der `scale` genutzt werden darf. Default: false.|
+
+## [action: ...]
+
+Mit dem `action` Platzhalter können aus dem Inhalt heraus Aktionen ausgeführt werden. Es wird nur der Einsatz bestimmer Funktionen empfohlen, da mit der Ausführung bestimmter Aktionen sich ein unerwünschtes Verhalten ergeben kann (z.B. Redirects durch eine so eingebettete `action`). Aktionen werden in der Reihenfolge des Erscheinens ausgeführt.
+
+Beispiel: Beispielsweise können Abfragen aif Platzhalter auf den Wert einer Variable durchgeführt werden, die im folgenden Code dann dann durch diesen Platzhalter `action` zurückgesetzt wird. Dies hätte zum Beispiel zur Folge, dass die Abfrage nur einmal ausgeführt werden kann.
+
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+|name|$|Name der auszuführenden Aktion|
