@@ -111,3 +111,35 @@ Die Aktion `redirect chapter:<destination>` leitet den Spielenden auf das unter 
 Beispiel:
 
 `redirect chapter:chapter-01`
+
+### flash (alternativ: dialog, message)
+
+Diese Aktion sendet eine Nachricht an den aktuellen Spielenden nach demLaden einer Seite. Typischerweise wird diese Art der Benachrichtigung angewendet, um den Spielden ü+ber den Erfolg pder Misserfolg einer Aktion zu informieren. Alternativ können amstelle `flash` auch `dialog` oder `message` genutzt werden. Es können in dem Nachrichtentext auch Variablen verwendet werden
+
+Beispiel:
+
+`flash: Du hast die Aufgabe '%%%variable:chapter1%%%' erfolgreich gelöst!`
+
+### notification
+
+Diese Aktion `notification (all|team}: <Nachricht>` sendet eine `Nachricht` über eine Benachrichtigung am unteren Bildschirmrand, die nach wenigen Sekunden anzeige verschwindet. Die Benachrichtigung kann dabei an verschidene Spielende gesendet werden: `all` sendet an alle zur Zeit aktivebn Spielenden, `team` sendet an alle Teammitglieder, die den identischen Teamcode nutzen. Der aktuelle Spieler erhält ebenfalls diese Benachrichtigung, so dass dieser ebenfalls informiert wird.
+
+Beispiel:
+
+`notification team: Ein Spielender hat die Aufgabe '%%%variable:chapter1%%%' erfolgreich gelöst!`
+
+### fetch
+
+Die Aktion `fetch (all|team}: <Teamcode>` holt alle Spielenden in das aktuelle Kapitel des Spielers zusammen, der diese Aktion ausgelöst hat. Die anderen Spielenden laden die aktuelle Adress ein ihrem Browser. Es können mit Angabe `all` alle Spielenden des Events oder mit Angabe `team` die lediglich die Mitglieder der eigenen Teams zu der Adresse geholt werden. 
+
+Hinweis: Wird der Parameter `all` genutzt, ist derzeit noch ein (nicht existenter) Teamcode anzugeben. Diese Angabe wird in späteren Versionen des Frameworks entfallen. Dieser Hinweis wird dann entfernt.
+
+Beispiel:
+
+`notification all:all`
+`notification team: team1234`
+
+### report send
+
+Hinweis: Funktion befindet sich in Entwicklung und wird später beschrieben.
+
