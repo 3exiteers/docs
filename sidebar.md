@@ -6,5 +6,6 @@
 - [Preconditions] (preconditions)
 - [Creator](creator)
 - [Git](git)
+- [Tipps & Tricks](tips)
 - **Links**
 - [Github](https://github.com/3exiteers/3exiteers-framework)
