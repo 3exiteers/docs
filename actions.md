@@ -112,15 +112,25 @@ Beispiel:
 
 `redirect chapter:chapter-01`
 
-### flash (alternativ: dialog, message)
+### flash (alternativ: flash-dialog, flash-message)
 
-Diese Aktion sendet eine Nachricht an den aktuellen Spielenden nach demLaden einer Seite. Typischerweise wird diese Art der Benachrichtigung angewendet, um den Spielden ü+ber den Erfolg pder Misserfolg einer Aktion zu informieren. Alternativ können amstelle `flash` auch `dialog` oder `message` genutzt werden. Es können in dem Nachrichtentext auch Variablen verwendet werden
+Diese Aktion sendet eine Nachricht an den aktuellen Spielenden nach dem Laden einer Seite. Typischerweise wird diese Art der Benachrichtigung angewendet, um den Spielden über den Erfolg pder Misserfolg einer Aktion zu informieren. Alternativ können amstelle `flash` auch `flash-dialog` oder `flash-message` genutzt werden. Es können in dem Nachrichtentext auch Variablen verwendet werden.
 
 Beispiel:
 
 `flash: Du hast die Aufgabe '%%%variable:chapter1%%%' erfolgreich gelöst!`
 
-### notification
+
+### flash-notification
+
+Diese Aktion ist eine Unterart von `flash` und sendet eine Nachricht an den aktuellen Spielenden nach dem Laden einer Seite, stellt diese aber als Notification im Popup-Stil dar.. Typischerweise wird diese Art der Benachrichtigung angewendet, um den Spielden über den Erfolg pder Misserfolg einer Aktion zu informieren. Es können in dem Nachrichtentext auch Variablen verwendet werden.
+
+Beispiel:
+
+`flash-notification: Du hast die Aufgabe '%%%variable:chapter1%%%' erfolgreich gelöst!`
+
+
+### notification (alternativ: broadcast)
 
 Diese Aktion `notification (all|team}: <Nachricht>` sendet eine `Nachricht` über eine Benachrichtigung am unteren Bildschirmrand, die nach wenigen Sekunden anzeige verschwindet. Die Benachrichtigung kann dabei an verschidene Spielende gesendet werden: `all` sendet an alle zur Zeit aktivebn Spielenden, `team` sendet an alle Teammitglieder, die den identischen Teamcode nutzen. Der aktuelle Spieler erhält ebenfalls diese Benachrichtigung, so dass dieser ebenfalls informiert wird.
 
