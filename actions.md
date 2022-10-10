@@ -58,6 +58,8 @@ Beispiel:
 
 ### variable set
 
+```variable set: <Variable>=<Inhalt>```
+
 Mit der Aktion `variable set:<key>=<value>` können Variablen für das Team gesetzt werden. Die Angabe erfolgt dabei unter Angabe eines Variablennamens `<key>` und des zuzuweisenden Wertes `<value>`. Anstelle `variable` kann auch `variables`, `var` oder `vars` verwendet werden.
 
 Beispiel:
@@ -65,6 +67,8 @@ Beispiel:
 `variable clear: variable=value`
 
 ### variable clear
+
+```variable clear: <Variable>```
 
 Mit der Aktion `variable clear:<key>` können Variablen für das Team entfernt werden. Die Angabe erfolgt dabei unter Angabe eines Variablennamens `<key>`. Anstelle `variable` kann auch `variables`, `var` oder `vars` verwendet werden.
 
@@ -74,6 +78,8 @@ Beispiel:
 
 ### list add
 
+```list add: <Variable>=<Inhalt>```
+
 Die Aktion `list add <option>:<key>=<value>` ermöglicht das Hinztufügen eines Wertes zu einer Liste. Das Standardtrennzeichen der Liste ist das Komma `,`, mit dem die Listeinträge voreinander getrennt werden. Wird als `<option>` der Begriff `unique` angegeben, wird der angegebene Wert `<value` nur der Liste `<key>` hinzugefügt, sofern dieser noch nicht enthalten ist.
 
 Beispiel:
@@ -81,6 +87,8 @@ Beispiel:
 `list add [unique]: variable=value`
 
 ### list remove
+
+```list clear: <Variable>=<Inhalt>```
 
 Die Aktion `list remove <option>:<key>=<value>` erlaubt das Entfernen des angegeben Listenelements `<value>`aus der Liste `<key>`. Wird `<options>` nicht angeben, wird werden alle Elemente `<value>` aus der Liste entfernt. Dies entspricht der `<option>` von `all`. Alternaiv könenn auch `first` für das erste oder `last` für das letzte Elemente angegeben werden.
 
@@ -90,6 +98,8 @@ Beispiel:
 
 ### list clear
 
+```list clear: <Variable>```
+
 Die Aktion `list clear:<key>` erlaubt das Löschen der unter `<key>` angegeben Liste.
 
 Beispiel:
@@ -97,6 +107,8 @@ Beispiel:
 `list clear:variable`
 
 ### redirect url
+
+```redirect url: <URL>```
 
 Die Aktion `redirect url:<destination>` leitet des Spielenden auf die unter `<destinaltion>` vollqualifizierten angegeben URL weiter (inkl. Protokollangabe). Die Aktion wird umgehend ausgeführt, so dass weitere Aktionen durch das Verlassen der vom Framework bereitgestellten Inhalte nicht mehr ausgeführt werden. Diese Aktion ist ein sogenanntes STOP-Kommando, das die weitere Verarbeitung der Aktionen abbricht. Es wird daher empfohlen, diese Aktion am Ende einer Liste von Aktionen zu nutzen.
 
@@ -106,6 +118,8 @@ Beispiel:
 
 ### redirect chapter
 
+```redirect chapter: <Kapitel>```
+
 Die Aktion `redirect chapter:<destination>` leitet den Spielenden auf das unter `<destination>` angegebene Kapitel um. Dieses Aktion ist ein sogennantes STOP-Kommando, da durch den Wechsel der angezeigten Seite die nachfolgenden Aktionen nicht mehr ausgeführt werden können. Es wird daher empfohlen, diese Aktion am Ende einer Liste von Aktionen zu nutzen.
 
 Beispiel:
@@ -113,6 +127,8 @@ Beispiel:
 `redirect chapter:chapter-01`
 
 ### flash (alternativ: flash-dialog, flash-message)
+
+```flash: <Nachricht>```
 
 Diese Aktion sendet eine Nachricht an den aktuellen Spielenden nach dem Laden einer Seite. Typischerweise wird diese Art der Benachrichtigung angewendet, um den Spielden über den Erfolg pder Misserfolg einer Aktion zu informieren. Alternativ können amstelle `flash` auch `flash-dialog` oder `flash-message` genutzt werden. Es können in dem Nachrichtentext auch Variablen verwendet werden.
 
@@ -123,16 +139,22 @@ Beispiel:
 
 ### flash-notification
 
-Diese Aktion ist eine Unterart von `flash` und sendet eine Nachricht an den aktuellen Spielenden nach dem Laden einer Seite, stellt diese aber als Notification im Popup-Stil dar.. Typischerweise wird diese Art der Benachrichtigung angewendet, um den Spielden über den Erfolg pder Misserfolg einer Aktion zu informieren. Es können in dem Nachrichtentext auch Variablen verwendet werden.
+```flash-notification <Dauer>: <Nachricht>```
+
+Diese Aktion ist eine Unterart von `flash` und sendet eine Nachricht an den aktuellen Spielenden nach dem Laden einer Seite, stellt diese aber als Notification im Popup-Stil dar. Typischerweise wird diese Art der Benachrichtigung angewendet, um den Spielden über den Erfolg pder Misserfolg einer Aktion zu informieren. Es können in dem Nachrichtentext auch Variablen verwendet werden.
+
+Als Parameter kann die Dauer der Anzeige der Benachrichtigung in Milisekunden angebenenm werden. Fehlt diese Angabe, wird der Standardwert von 2500 Milisekunden (2.5 Sekunden) verwendet.
 
 Beispiel:
 
-`flash-notification: Du hast die Aufgabe '%%%variable:chapter1%%%' erfolgreich gelöst!`
+`flash-notification 5000: Du hast die Aufgabe '%%%variable:chapter1%%%' erfolgreich gelöst!`
 
 
 ### notification (alternativ: broadcast)
 
-Diese Aktion `notification (all|team}: <Nachricht>` sendet eine `Nachricht` über eine Benachrichtigung am unteren Bildschirmrand, die nach wenigen Sekunden anzeige verschwindet. Die Benachrichtigung kann dabei an verschidene Spielende gesendet werden: `all` sendet an alle zur Zeit aktivebn Spielenden, `team` sendet an alle Teammitglieder, die den identischen Teamcode nutzen. Der aktuelle Spieler erhält ebenfalls diese Benachrichtigung, so dass dieser ebenfalls informiert wird.
+```notification <Empfänger>: <Nachricht>```
+
+Diese Aktion `notification (all|team}: <Nachricht>` sendet eine `Nachricht` über eine Benachrichtigung am unteren Bildschirmrand, die nach wenigen Sekunden anzeige verschwindet. Die Benachrichtigung kann dabei an verschidene Spielende gesendet werden: `all` sendet an alle zur Zeit aktivebn Spielenden, `team` sendet an alle Teammitglieder, die den identischen Teamcode nutzen. Der aktuelle Spieler erhält ebenfalls diese Benachrichtigung, so dass dieser ebenfalls informiert wird. Die Nachricht wird bei den Empfänger für 2.5 Sekunden angezeigt.
 
 Beispiel:
 
@@ -140,14 +162,16 @@ Beispiel:
 
 ### fetch
 
+```fetch <Empfänger>: <Teamcode>```
+
 Die Aktion `fetch (all|team}: <Teamcode>` holt alle Spielenden in das aktuelle Kapitel des Spielers zusammen, der diese Aktion ausgelöst hat. Die anderen Spielenden laden die aktuelle Adress ein ihrem Browser. Es können mit Angabe `all` alle Spielenden des Events oder mit Angabe `team` die lediglich die Mitglieder der eigenen Teams zu der Adresse geholt werden. 
 
 Hinweis: Wird der Parameter `all` genutzt, ist derzeit noch ein (nicht existenter) Teamcode anzugeben. Diese Angabe wird in späteren Versionen des Frameworks entfallen. Dieser Hinweis wird dann entfernt.
 
 Beispiel:
 
-`notification all:all`
-`notification team: team1234`
+`fetch all:all`
+`fetch team: team1234`
 
 ### report send
 
