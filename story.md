@@ -4,6 +4,23 @@
 
 **TIPP**: Die Komplexität und der Umfang der Geschichte ist an den Spielenden auszurichten. Zu viel Text kann in einem Team mit verschiedenen Charakteren zu unterschiedlichen Spielgeschwindigkeiten führen. Daher ist es ratsam, die Geschichte anhand der Veranstaltung unter Umständen unterschiedlich zu beschreiben.
 
+## Benutzeroberfläche
+
+`chapter` -> `<chapterid>` -> `userinterface`
+
+Die Benutzeroberfläche kann in einigen Teilen angepasst werden. So könnne bestimmte grafische Elemente situativ je Kapitel angezeigt bzw. nicht angezeigt werden. Die Vorgabe erfoilgt dabei in der Regel durch das genutzte Template des Event bzw. der Story.
+
+Folgende Einstellungen sind implementiert und müssen vom jeweiligen Template unterstützt werden:
+
+| --- | --- |
+| progressbar | Aktiviert die Anzeige der Fortschrittsanzeige (progressbar) mit `true` oder blendet diese aus (`false`)) |
+| hint | Aktiviert die Anzeige der der Schaltfläche für Hinweise mit `true` oder blendet diese aus (`false`)) |
+| help | Aktiviert die Anzeige der der Schaltfläche für die Hilfe mit `true` oder blendet diese aus (`false`)) |
+| fetch | Aktiviert die Anzeige der der Schaltfläche für das Zusammenholenb der Teammitglieder mit `true` oder blendet diese aus (`false`)) |
+| sketchpad | Aktiviert die Anzeige der der Schaltfläche für das Sketchpad mit `true` oder blendet diese aus (`false`)) |
+
+Grundsätzlich sind im Zusammenspiel mit einer Unterstützung im Template weitere hier nicht beschriebene Einstellungsmöglichkeiten denkbar. In den von 3Exiteers unterstützten Template sind jedoch die oben beschrieben Einstellungsmöglichkeiten vorgesehen.
+
 ## Handhabung von Lösungseingaben
 
 ### Ergänzende Lösungen
