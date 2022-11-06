@@ -4,13 +4,61 @@
 
 **TIPP**: Die Komplexität und der Umfang der Geschichte ist an den Spielenden auszurichten. Zu viel Text kann in einem Team mit verschiedenen Charakteren zu unterschiedlichen Spielgeschwindigkeiten führen. Daher ist es ratsam, die Geschichte anhand der Veranstaltung unter Umständen unterschiedlich zu beschreiben.
 
-# Minimale und maximale Punktestände
+## Handhabung von Lösungseingaben
+
+### Ergänzende Lösungen
+
+`chapter` -> `<chapterid>` -> `solution` -> `solutions`
+
+Es können ergänzend zu den Lösungen der Quest in einem Kapitel weitere Lösungen angegeben werden. Standardeinstellung sind keine weiteren Lösungen.
+
+### Erweiterungsmodus für ergänzende Lösungen
+
+`chapter` -> `<chapterid>` -> `solution` -> `expandmode`
+
+Es kann für ergäzende LÖsungen definiert werden, wie diese verwendet werden sollen. Hierbei wird der Umfang der Lösungen zumeist verändert und je nach Modus ebenso die Stabndard-Lösung. Die Standard-Lösung ist dabei die erste Lösung in der Liste der als valide definierten Lösungen, die als Variableninhalt für `%%%variable:solution%%%` verwendet wird und damit zum Beispiel in dem Hilfesystem angezeigt wird.
+
+Mögliche Werte:
+
+| --- | --- |
+| 0 | keine Ergänzung von Lösungen |
+| 1 | Ergänzungen werden vor die Lösungen der Quest gesetzt. Hiermit ändert sich die erste Lösung, die an vielen Stellen als Standard-Lösung angezeigt wird (u.a. im Hilfedialog). |
+| 2 | Ergänzungen werden nach den Lösungen der Quest gesetzt. damit wird die Liste der validen Lösungen erweitert und die Standard-Lösung bleibt von der Quest erhalten. (Standard)|
+| 3 | Ergänzungen ersetzen die Lösungen der Quest und verändern damit die validen Lösungen, sowie die Standard-Lösung. |
+
+### Schreibweise
+
+`chapter` -> `<chapterid>` -> `solution` -> `casesensitive`
+
+Die Eingabe einer Lösung durch den Spielenden kann unter Beachrung der Schreibweise (`true`) oder ohne Berücksichtigung der Schreibweise (`false`) interpretiert werden. Standardeinstellung ist `false`.
+
+### Kürzen der Eingabe
+
+`chapter` -> `<chapterid>` -> `solution` -> `trim`
+
+Leerzeichen zu Beginn und am Ende von Eingaben werden entfernt (`true`) oder wie vom Spielenden eingeben behalten (`false`). Standardeinstellung ist `false`.
+
+### Teilzeichenkette
+
+`chapter` -> `<chapterid>` -> `solution` -> `substring`
+
+Ist die EIngae ein Teil der Lösung, wird diese akzeptiert (`true`). Altermativ muss die Lösung exakt eingegeben werden (`false`). Standardeinstellung ist `false`.
+
+### Entfernen von Leerzeichen
+
+`chapter` -> `<chapterid>` -> `solution` -> `strip_whitespaces`
+
+Leerzeichen innerhalb von Eingaben werden entfernt (`true`) oder wie vom Spielenden eingeben behalten (`false`). Standardeinstellung ist `false`.
+
+## Punktesystem
+
+### Minimale und maximale Punktestände
 
 Für eine Geschichte können minimale und maximale Punktestände definiert werden, die nicht unter- bzw. überschritten werden können. Diese Angabe erfolgt in der `story.json` unter `point_limits` -> `min`, sowie `point_limits` -> `max`.
 
 Während die Spielenden Punkte erspielen kann der Punktestand durch verschiedene Aktionen unter bzw. über diese Definitionen gelangen. In diesem Fall wird der Punktestand auf das angegebene Limit begrenzt und der anzuwendende (und alle späteren) Aktionen , die zu einer Unter- oder Überschreitung führen, nicht gewertet. Der anzuwendende Malus oder Bonus wird auf den (Teil-)Wert reduziert, der zum Erreichen den Limits ausreicht. Ist das Limit bereits erreicht, wird der Malus bzw. Bonus auf den Wert Null reduziert.
 
-# Punkte für Aktionen
+### Punkte für Aktionen
 
 Innerhalb von Geschichten können Punkte für bestimmte Aktionen vergeben werden.
 
@@ -22,13 +70,13 @@ Diese Malus- und Bonus-Werte können über folgende Einstellungen innerhalb der 
 
 Bonuspunkte werden mit positiven Werten (zum Beispiel 1,4,8,100) angegeben, Maluspunkte mit negativen Werten (zum Beispiel -1, -4, -8, -100).
 
-## Eintritt in Kapitel
+### Eintritt in Kapitel
 
 `chapter` -> `<chapterid>` -> `points` -> `enter`
 
 Der angegebene Wert wird auf den aktuellen Punktestand angewendet, wenn das erste Spielende des Teams das unter `<chapterid>` angegebene Kapitel erreicht. Nachfolgende Spielende verändern den Punktestand nicht.
 
-## Abruf von Hinweisen
+### Abruf von Hinweisen
 
 `chapter` -> `<chapterid>` -> `points` -> `hints` -> `<hintid>` ...
 
@@ -38,7 +86,7 @@ Die Ziffer 0 als Wert bewirkt, dass der Hinweis kostenfrei erhalten wird und dad
 
 Ergänzend kann der Wert `null` angegeben werden, um die Punkte für einen Hinweis aus der `quest.json` zu nutzen. Dies kann hilfreich sein, wenn zum Beispiel der erste Hinweis mit `null` definiert wird, der zweite aber nur einem Maluswert. In diesem Fall kann aus die generische Angabe der Maluspunkte durch `nonsolution_hint`/`solution_hint` verzichtet werden.
 
-## Abruf eines Lösungshinweises
+### Abruf eines Lösungshinweises
 
 `chapter` -> `<chapterid>` -> `points` -> `nonsolution_hint`
 
@@ -49,13 +97,13 @@ Ist der Wert `nonsolution_hint` angegeben, wird für einen Hinweis, für den nic
 
 Ist der Wert `solution_hint` angegeben, wird für einen Hinweis, der mit `solution: true` angegeben wurde, dieser Wert auf den Punktestand angewendet. Diese Angabe überschreibt alle übrigen Punkteangaben aus der `quest.json` und der `story.json`.
 
-## Eingabe einer inkorrekten Lösung
+### Eingabe einer inkorrekten Lösung
 
 `chapter` -> `<chapterid>` -> `points` -> `incorrect_solution`
 
 Der Wert unter `incorrect_solution` wird immer dann angewendet, wenn ein Spielender des Teams eine inkorrekte Lösungseingabe vornimmt. Diese wird für das gesamte Team gewertet und kann beliebig oft durch jedes Teammitglied erfolgen. Dies birgt die Gefahr, den Punktestand ohne Kenntnis der anderen Teammitglieder zu verändern.
 
-# Timer
+## Timer
 
 In einem Chapter kann ein Timer für das Lösen der Quest angegeben werden. Dieser Timer wird als überlagernder Dialog in der oberen rechten Ecke des Browser-Fensters angezeigt. Folgende Einstellungsmöglichkeiten gibt es:
 
@@ -69,30 +117,34 @@ In einem Chapter kann ein Timer für das Lösen der Quest angegeben werden. Dies
 | next | ... | Definiert das Kapitel, welches bei Ablauf des Timers aufgerufen werden soll. |
 
 
-# Platzhalter
+## Platzhalter
 
 **HINWEIS**: Platzhalter können sowohl in Story als auch Event eingesetzt werden. Platzhalter implementieren Features in eine `Story` oder eine `Quest`.
 
-## Grundsätzlicher Aufbau
+### Grundsätzlicher Aufbau
 
-## {file: }
+#### {file: }
 
 Der angegeben Dateinamen wird geladen und anstelle des Platzhalters `file` als Ausgabe festgelegt. Wird der Platzhalter in einem anderen Text eingebettet, wird der geladene Text in den Text eingefügt.
 
 Beispiel:  
 > {file:output.html}
 
-## {variable: }
+#### {variable: }
 
 Mit dem Platzhalter `variable` können Inhalte aus der Event-Definition in die Ausgabe eingebracht werden. Hierbei wird zuerst versucht die Variable aus der Team-Definition (event.json->team->teamcode->variables->`variable`:`inhalt`) zu ermitteln. Wenn dies nicht erfolgreich ist, wird die Variable versucht aus der Event-Definition (event.json->variables->`variable`:`inhalt`) zu ermitteln.
 
 Der Platzhalter `{variable:master}` bewirkt, dass die Variable `master` gesucht wird und der gesamte Platzhalter ({...}) mit dem Inhalt `inhalt` ersetzt wird.
 
-### Vordefinierte (interne) Variablen
+##### Vordefinierte (interne) Variablen
 Ergänzend zu den eigendefinierten Variablen sind auch interne Variablen definiert. Diese internen Variablen sind reservierte Begriffe, die nicht durch eigene Variablennamen ersetzt werden können.
 
 | Variable | Beschreibung | Gültig für |
 | ------------- |:------------- | :------------ |
+| eventid | Event ID | event |
+| storyid | Story ID | story |
+| questid | Quest ID | quest |
+| team_points | Punktestand des Teams | story |
 | team_points | Punktestand des Teams | story |
 | team_chapters | Absolvierte Kapitel des Teams | story |
 | team_solutions | Gesamtanzahl der bisher eingegebenen Lösungsversuche des Teams | story |
@@ -105,7 +157,7 @@ Ergänzend zu den eigendefinierten Variablen sind auch interne Variablen definie
 |path_quest | Pfad zur aktuellen Quest | quest |
 |solution | Lösung der Quest (erster Eintrag der Liste) | quest |
 
-#### Sub-Variable
+##### Sub-Variable
 
 Eine Sub-Variable wird als `[...]` innerhalb einer Variablen-Ersetzung angegeben. So können verschachtelte Variablen eingesetzt werden, die sich anhand des Wertes anderer Variablen ergeben. Als Beispiel sei eine Variable genannt, die im Laufe der Geschichte aktualisiert wird, im Inhalt aber eine feste Definition als Variable angegeben wurde. Beispiel:
 
@@ -122,7 +174,7 @@ Eine Sub-Variable wird als `[...]` innerhalb einer Variablen-Ersetzung angegeben
 Die Variable `chapter` wird während des Fotschritts aktualisiert (z.B. durch `action`) und verändert dadurch die Variable `content_chapter`. Diese wiederum bewirkt durch die Angabe einer Sub-Variable, dass je nach Inhalt der Variable `chapter` entweder die Inhalte aus Variable `content_1`, `content_2` oder `content_3`  eingesetzt werden.
 
 
-# Medieninhalte
+## Medieninhalte
 
 Die unterschiedlichen Medieninhalte können durch einen Platzhalter eingebettet werden. Das Format lautet:
 
@@ -132,13 +184,13 @@ Die Einleitung der Formats bestimmt, welche Inhalte und Funktionen in die Ausgab
 
 Grundsätzlich muss sich die Mediendatei innerhalb der Story-Definition befinden und wird von dort eingebettet.
 
-## Vorbedingungen
+### Vorbedingungen
 
-### precondition
+#### precondition
 
 Bedingungen zur Anzeige einer Mediendatei können über den Parameter `{precondition:<chapter>,<chapter>,...}`angegeben werden. <chapter> beschreibt dabei den internen Namen eines ein Kapitels, welches erreicht/gespielt worden sein muss. Ist dieses Kapitel noch nicht erreicht worden, ist die Voraussetzung nicht erfüllt und die Mediendatei wird nicht eingebunden. Durch die Angabe mehrere Kapitel müssen alle angegebenen Kapitel erreicht worden sein, damit die Mediendatei eingebettet wird.
 
-### precondition-none
+#### precondition-none
 
 Die `precondition-none` Bedingung definiert, dass die Mediendatei nicht angezeigt wird, sobald eines der angegebenen Kapitel gespielt wurde. Diese Bedingung muss lediglich für ein angegebes Kapitel zutreffen, damit die Grafik nicht angezeigt wird. Dies kann beispielsweise hilfreich sein, wenn mit anderen `precondition` Bedingungen eine alternative Grafik angezeigt werden soll.
 
@@ -154,17 +206,17 @@ Beispiel:
 
 Dieses Beispiel zeigt, dass die Grafik `0.png` angezeigt wird, sollte noch kein Kapitel `1.png`, `2.png` `3.png` oder `4.png` angezeigt worden sein. Die übrigen Grafiken werden erst angezeigt, wenn die korrespondierenden Kapitel angezeigt wurden, aber noch nicht die nachfolgenden Kapitel aufgerufen wurden. Beispielsweise benötigt die Grafik `1.png` ein zuvor angezeigtes Kapitel `ch1-done`, allerdings wird diese nur angezeigt, wenn nicht schon `2.png`, `3.png` oder `4.png` bereits angezeigt wurden. 
 
-### precondition-one (noch nicht implementiert!)
+#### precondition-one (noch nicht implementiert!)
 
 Eine `precondition-one` Bedingung zeigt die Mediendatei an, sobald eines der angegebenen Kapitel gespielt wurde.
 
-### precondition-none-all (noch nicht implementiert!)
+#### precondition-none-all (noch nicht implementiert!)
 
 Die `precondition-none` Bedingung definiert, dass die Mediendatei nicht angezeigt wird, sobald alle der angegebenen Kapitel gespielt wurden. Diese Bedingung muss für alle angegeben Kapitel zutreffen, damit die Grafik nicht angezeigt wird. Dies kann beispielsweise hilfreich sein, wenn mit anderen `precondition` Bedingungen eine alternative Grafik angezeigt werden soll.
 
 Folgende Medienformate werden unterstützt:
 
-## [image: ...]
+### [image: ...]
 
 Es wird eine Bilddatei eingebunden.
 
@@ -190,7 +242,7 @@ Für die Grafiken können ergänzend zu der Originalversion auch Varianten mit u
 
 Die Dateien werden in der bereitgestellten HTML-Code nur eingebunden, sofern diese als Datei bereitstehen. Diese Optimierung kann bewusst durch den Bereitsteller durch Angabe `optimize:false` ausgeschaltet werden.
 
-## [audio: ...]
+### [audio: ...]
 
 Mit Hilfe des Platzhalters `audio` wird eine Audio-Datei im Hintergrund abgespielt. Um eine unerwünschte Ausgabe für den Spielenden zu vermeiden, wird an der Stelle der Einbettung eine Schaltfläche eingeblendet, mit der die Ausgabe stumm oder nicht-stumm geschaltet werden kann.
 
@@ -208,7 +260,7 @@ Folgende Einstellungen sind möglich:
 | notoggle | true | Gibt an, ob die Kontrollelemente zum ein- und Ausschalten des Audiowiedergabe angezeigt werden sollen. Achtung: werden diese mit `false` ausgeschaltet, kann dies bei Medieninhalten mit Audio-Ausgabe zu einer schlechten Benutzererfahrung führen!|
 
 
-## [video: ...]
+### [video: ...]
 
 
 | Parameter     | Wert          | Beschreibung |
@@ -228,7 +280,7 @@ Folgende Einstellungen sind möglich:
 | notoggle | true | Gibt an, ob die Kontrollelemente zum ein- und Ausschalten des Audiowiedergabe angezeigt werden sollen. Achtung: werden diese mit `false` ausgeschaltet, kann dies bei Medieninhalten mit Audio-Ausgabe zu einer schlechten Benutzererfahrung führen!|
 
 
-## [handout: ...]
+### [handout: ...]
 
 Der Platzhalter `handout` stellt ein angegebenes Dokument als Download-Link dar. Das Dokument wird als Link, welcher sich in einem gesonderten Fenster öffnent, dargerstellt.
 
@@ -244,7 +296,7 @@ Werden keine Handout-Dokumente oder -Bestandteile gefunden oder enthält das zus
 | merge | true | Gibt an, ob aus referenzierten Quests der Story die in den Quest-Verzeichnissen enthaltenen `handout.pdf` in einer PDF-Datei zusammengetragen werden sollen. Ist in der Story ebenfalls eine `handout.pdf` enthalten, wird diese als Deckblatt verwendet. Die Handouts der `Quest` werden nach dem Deckplatt in der Reihenfolge ihrer Einbindung in der `Story` integriert. Ist in der Story zudem eine `handout_last.pdf` oder alternativ eine `handout_end.pdf` Datei enthalten, wird diese am Ende des zusammengestellten PDF eingefügt. Dies kann zum Beispiel für Abschlussseiten mit Adress-, Kontakt- oder Copyright-Angaben genutzt werden. |
 | icon | true | Zeigt das Icon standardmäßig für das Handout an. Die Anzeige des Icon kann mit `false` ausgeblendet werden. |
 
-## [playarea: ...]
+### [playarea: ...]
 
 Der Platzhalter `playarea` erzeugt einen Bereich mit interkagtiven Elementen. Die Anzahl der Elemente wird durch die angegebenen Parameter bestimmt. Diese Elemente können verschoben, in der Größe geändert oder rotiert werden. Mit diesen Elemente lassen sich zum Beispiel Puzzles oder Rätsel umsetzen, bei denen mehrere visuelle Bestandteile zusammengebracht werden müssen.
 
@@ -279,7 +331,7 @@ Der Platzhalter `playarea` erzeugt einen Bereich mit interkagtiven Elementen. Di
 | item{id}_option_rotation | true | |
 
 
-## [voice: ...]
+### [voice: ...]
 
 Der Platzhalter `voice` ermöglicht die Audio-Ausgabe von Text (text-to-speech). Der als Parameter angegebene Text wird hierbei über die Browser-Funktion des Spieldenden wiedergegeben. An der Stelle des Platzhalters wird eine Schaltfläche eingeblendet, mit die Ausgabe gestartet werden kann.
 
@@ -314,7 +366,7 @@ Mit der Option `rate` kann die Geschwindigkeit beeinflusst werden. Mit `pitch` k
 | tba | 1 | 1 |
 | tba | 1 | 1 |
 
-## [fetch: ...]
+### [fetch: ...]
   
 Mit dem Fetch-Platzhalter werden alle Teammitglieder zu dem aktuellen Kapitel geholt, in dem sich der aufrufende Spielende befindet. Dadurch können Teammitglieder, die eine Quest nicht lösen können oder verspätet dem Spiel beitreten, zum aktuellen Kapitel geholt werden. Diese Funktion ist nur für Teammitglieder funktionsfähig, die sich mit dem identischen Teamcode registriert haben.
   
@@ -322,7 +374,7 @@ Mit dem Fetch-Platzhalter werden alle Teammitglieder zu dem aktuellen Kapitel ge
 | ------------- |:-------------:| :----------- |
 | label | ... | Beschriftung des Links |
 
-## [html: ...]
+### [html: ...]
   
 Mit dem `html`-Platzhalter wird HTML-Code in die Seite eingebunden. 
   
@@ -332,9 +384,22 @@ Mit dem `html`-Platzhalter wird HTML-Code in die Seite eingebunden.
 | filename | ... | Lädt eine externe Datei mit dem HTML-Code |
 | raw | false | definiert, dass der HTML-Code im Rohformat dargestellt wird |
 | replace | true | Ersetzt im HTML-Code enthaltene Platzhalter |
+| storyfallback | true | Prüft, ob ion einer Quest alternativ nach der unter `content` angegebenen Datei in der Story gesucht werden darf. Falls dies nicht gewünscht ist, muss explizit `false` gesetzt werden! |
 
 
-## [markdown: ...]
+### [link: ...]
+  
+Mit dem `link`-Platzhalter wird ein HTML-Link in die Seite eingebunden. 
+  
+| Parameter     | Wert          | Beschreibung |
+| ------------- |:-------------:| :----------- |
+| url | ... | URL des Links bzw. der Grafik (bei lightbox=true) |
+| description | ... | Test des HTML-Links |
+| target | _blank | Ziel-Frame des Browsers, in dem der Link geöffnet werden soll |
+| lightbox |false | Bei Links oder Grafiken werdne diese in einer Bootstrap Lightbox (Dialog) angezeigt |
+
+
+### [markdown: ...]
   
 Mit dem `markdown`-Platzhalter wird Markdown-Code in die Seite eingebunden. 
   
@@ -347,7 +412,7 @@ Mit dem `markdown`-Platzhalter wird Markdown-Code in die Seite eingebunden.
 
 Weitere Details über den Syntach können beispielsweise über die externe Übersicht bei [Daring Fireball](https://daringfireball.net/projects/markdown/syntax) als Syntax-Referenz eingesehen werden.
 
-## Lobby
+### Lobby
 
 Der Lobby-Modus ermöglicht die Spielenden nach der Registrierung in einem gemeinsamen Raum (Kapitel) warten zu lassen. Erst wenn ein Lobby-Administrator die Lobby auflöst, werden alle Teilnehmer automatisch zu dem ersten Kapitel der Story geleitet.
 
@@ -363,8 +428,7 @@ Bekannte Platzhalter sind:
 
 Die Inhalte der Platzhalter werden gelesen und Platzhalter (u.a. Variablen oder dynamische Median-Inhalte) ersetzt.
 
-
-## [confetti: ...]
+### [confetti: ...]
   
 Mit dem Confetti-Platzhalter werden Konfetti-Partikel nach Anzeige der Website angezeigt. Die Darstellung kann mit folgenden Parametern angepasst werden: 
   
@@ -387,7 +451,7 @@ Mit dem Confetti-Platzhalter werden Konfetti-Partikel nach Anzeige der Website a
 |disableForReducedMotion|false|Disables confetti entirely for users that prefer reduced motion. The confetti() promise will resolve immediately in this case.|
   
 
-## [snow: ...]
+### [snow: ...]
   
 Mit dem Snow-Platzhalter werden Schneeflocken zur Anzeige der Website angezeigt. Die Darstellung kann mit folgenden Parametern angepasst werden: 
   
@@ -395,7 +459,7 @@ Mit dem Snow-Platzhalter werden Schneeflocken zur Anzeige der Website angezeigt.
 | ------------- |:-------------:| :----------- |
 |particleCount|200|Anzahl der Schneeflocken, mit denen gestartet werden soll. Mit der Anzahl der Partikel erhöht sich die Belastung auf den anzeigenden Systemen. Es wird empfohlen, die Anzahl NICHT über 300 einzustellen!
   
-## [link: ...]
+### [link: ...]
   
 Mit dem Link-Platzhalter wird ein Link dargestellt, der die angegebene URL in einem separaten Fenster aufruf. Vor dem Link ist ein Icon eingeblendet, um den Aufruf eines externen Links deutlich zu machen.
   
@@ -406,7 +470,7 @@ Mit dem Link-Platzhalter wird ein Link dargestellt, der die angegebene URL in ei
 |target|$|Name des Zielfensters, das bei Aufruf der `url` verwendet werden soll. Sofern diese Angabe fehlt oder leer ist, wird `_blank` verwendet|
 |class|$|CSS-Klasse, die bei Anzeige des Links verwendet werden soll|
 
-## [magnify: ...]
+### [magnify: ...]
   
 Mit dem `magnify` Platzhalter wird auf einer angegeben Bilddatei eine Lupen-Funktion angeboten, mit der Teile der Bilddatei vergrößert dargestellt werden können. Mit Hilfe des Mausrads besteht zudem die Möglichkeit den vorgegebenen Zoom-Level zu verändern (bei `wheelsupport:true`). Die Zu Grunde liegende Bilddatei sollte größer dimensioniert sein, damit der höhere Zoom weniger Pixelfragmente darstellt.
   
@@ -418,7 +482,7 @@ Mit dem `magnify` Platzhalter wird auf einer angegeben Bilddatei eine Lupen-Funk
 |height|#|Höhe der Lupe in Pixel|
 |wheelsupport| true, false |Gibt an, ab das Mausrad zum Ändern der `scale` genutzt werden darf. Default: false.|
 
-## [action: ...]
+### [action: ...]
 
 Mit dem `action` Platzhalter können aus dem Inhalt heraus Aktionen ausgeführt werden. Es wird nur der Einsatz bestimmer Funktionen empfohlen, da mit der Ausführung bestimmter Aktionen sich ein unerwünschtes Verhalten ergeben kann (z.B. Redirects durch eine so eingebettete `action`). Aktionen werden in der Reihenfolge des Erscheinens ausgeführt.
 
