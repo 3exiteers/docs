@@ -173,6 +173,37 @@ Beispiel:
 `fetch all:all`
 `fetch team: team1234`
 
+### points
+
+```points add <Modus> <Schlüssel>: <Punkte>```
+
+Die Aktion `points add [(unique|multiple)] <Schlüssel>: <Punkte>` fügt dem Team die angegebenen `<Punkte>` hinzu. Die Punkte werden unter dem Wert `<Schlüssel>` gespeichert. Dieser ist vergleichbar mit dem Namen eines Kapitels und sollte innerhalb der Story eindeutig sein. Wird unter `<Modus>` die Option `unique` angegeben, werden keine Punkte gespeichert, sollte dieser `<Schlüssel>` bereits vorhanden sein. Ist unter `<Modus>` die Option `multiple` angegeben, werden die Punkte bei jeder Ausführung gespeichert. `unique` ist die Standardoption.
+
+Die Punkte werden dem Punktekonto des Teams zugeordnet und bei der Punkteberechnung verwendet.
+
+Hinweis: Die Option `multiple` ist beim Einsatz einer Story mit mehreren Spielenden oder bei häufigen Aufrufen der Aktion mit Vorsicht zu genießen, da die Punkte mehrfach gespeichert werden.
+
+Beispiel:
+
+`points add unique raum1:10`
+`points add multiple raum2:11`
+`points add raum1: 12`
+
+### database (in Entwicklung)
+
+```database (load|save) (team|player): <Teamcode>|<Spielercode>```
+
+Die Aktion `database` speichert die Variablen des Teams (`team`) oder der Spielers (`player`) in die Datenbank zur Persistierung. Im Modus `load` werden die Angaben gelesen und als Variablen wieder zur Verfügung gestellt. Dieser Mechanismus dient der Sicherung der Variablen, um diese bei einer entwicklungsbedingten Aktualisierung zu persistieren und abrufbar zu gestalten. Die Nutzung ist für den normalen Betrieb eines Spiels nicht zwingend erforderlich, kann jedoch die Nutzererfahrung erhöhen.
+
+Hinweis: Die aus der Datenbank gelesenen Variablen werden den Variablen hinzugefügt. Bestehende Variablen werden überschrieben! Es werden nur vorhandene Variablen im Schreib- oder Lesevorgang verarbeitet.
+
+Hinweis 2: Sofern der Modus `player` verwendet wird kann die Benutzerkennung nur gelsen werden, wenn die Session des Benutzers noch aktiv ist. Sollten zuvor Aktionen wie zum Beispiel `team lock` verwendet worden sein, kann auf die Benutzerkennung nicht mehr zugegriffen werden. Das Speichern ist in diesem Fall nicht möglich.
+
+Hinweis 3: Derzeit ist nur die Option `team` implmenetiert. Die Unterstützung für `player` ist in Vorbereitung (11.2022)
+
+`database save: team`
+`database load: player`
+
 ### report send
 
 Hinweis: Funktion befindet sich in Entwicklung und wird später beschrieben.
