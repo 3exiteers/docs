@@ -2,6 +2,18 @@
 
 > Event descriptions.
 
+## Teamcode
+
+Der Teamcode ist das entscheidende Merkmal für den Zugang der Spielenden zu einem Event. Der Teamcode ist in der Regel ein 8-stelliger alphanumerischer Code, der einen eindeutigen Zugang darstellt. Doppelte Nennungen innerhalb eines Events führen zu einem Fehler; in diesem Fall wird lediglich der erstgenannte Teamcode genutzt. Verwendungen eines Teamcodes über verschiedene Events sind möglich.
+
+Der Schutz des Teamcodes ermöglicht die Eingabe eines alphanumerischen Wertes durch die SPielenden, während der Teamcode selber in allen persistierten Dateien über die Refertenz erfolgt. Die Eingabe der Referenz selber ist, solange die Kennzeichnung `{protect:...}` verwendet wird, nicht zulässig.
+
+Da Teamcodes in Repositories gespeichert werden, können diese (für das System) sensiblen Informationen geschützt werden. Der 8-stellige Teamcode kann unter Angabe von `{protect:<md5-teamcode>}` geschützt werden. 
+
+Der `md5-teamcode` stellt dabei den MD5 Hash-Wert des Teamcodes dar. Dieser wird auf der Computer-Konsolen über den Befehl `echo -n TEAMCODE|md5` gebildet. `TEAMCODE` ist hierbei der zu schützende Teamcode. In diesem Beispiel ergibt dies den Hash-Wert `a03e4f7892cf21d5be086fcaf75d1c88`.
+
+Ein weiter Schutzmechanismus stellt die Nutzung der `teamcodes.json` dar, in der die Übersetzung des Teamcodes in einen frei wählbaren Code ermöglicht wird. Hierbei kann die Übersetzung über den Bereich `eventid` -> `TEAMCODE` -> neuer Teamcode bzw. `global` -> `TEAMCODE` -> neuer Teamcode erfolgen. `TEAMCODE` ist hier der zu schützende Teamcode und `neuer Teamcode` der anstelle dessen zu nutzende Teamcode.
+
 ## Einstellungen
 
 `name`: ausgeschriebener Name des Teams  
