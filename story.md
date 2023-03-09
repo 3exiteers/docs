@@ -282,17 +282,18 @@ Folgende Einstellungen sind möglich:
 
 | Parameter     | Wert          | Beschreibung |
 | ------------- |:-------------:| :----------- |
-| controls | true | |
-| loop | true | |
-| autoplay | true | |
-| volume | 0..1 | |
-| description | ... | |
-| credits | ... | |
-| type | mp4/ogg/webm | |
-| muted | true | |
-| width | ... | |
-| height | ... | |
-| zoom | ... | |
+| poster | ... | Angabe eines Bildes, dass nach dem Laden und vor dem Abspielen (nicht im Autoplay-Modus!) angezeigt werden soll. Über ein definiertes Stylesheet (.style-Datei) kann die Dimension des angezeigten Bildes in dem Video-Container bestimmt werden. |
+| controls | true | Angabe, ob Kontrollelemente angezeigt werden sollen|
+| loop | true | Angabe, ob Video in einer Dauerschleife abgespielt werden soll|
+| autoplay | true | Angabe, ob Video nach dem Laden automatisch abgespielt werden soll |
+| volume | 0..1 | Angabe der Lautstärker |
+| description | ... | Angabe einer Beschreibung zu dem Video |
+| credits | ... | Angabe von Hinweisen zu dem Video, zum Beispiel Erzeuger oder Quelle |
+| type | mp4/ogg/webm | Angabe des Types der Videodatei |
+| muted | true | Angabe, ob Ton nach Laden der Videodatei für das Video auf lautlos gestellt werden soll |
+| width | ... | Angabe der Breite des Videos in absoluten (px) oder relativen (%) Angaben |
+| height | ... | Angabe der Höhe des Videos in absoluten (px) oder relativen (%) Angaben |
+| zoom | ... | Angabe einer Zoom-Stufe des Videos |
 | crop | ... | Gibt an, ob das Video in der vertikalen verschoben werden soll, um so den angezeigten Ausschnitt zu verändern. Ein negativer Wert verschiebt das Video nach oben, ein positiver nach unten. Die Angabe ist sinnvoll, sofern der sichtbare Bereich des Videos kleiner als die Originalhöhe ist.|
 | notoggle | true | Gibt an, ob die Kontrollelemente zum ein- und Ausschalten des Audiowiedergabe angezeigt werden sollen. Achtung: werden diese mit `false` ausgeschaltet, kann dies bei Medieninhalten mit Audio-Ausgabe zu einer schlechten Benutzererfahrung führen!|
 

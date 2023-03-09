@@ -6,11 +6,11 @@
 
 Der Teamcode ist das entscheidende Merkmal für den Zugang der Spielenden zu einem Event. Der Teamcode ist in der Regel ein 8-stelliger alphanumerischer Code, der einen eindeutigen Zugang darstellt. Doppelte Nennungen innerhalb eines Events führen zu einem Fehler; in diesem Fall wird lediglich der erstgenannte Teamcode genutzt. Verwendungen eines Teamcodes über verschiedene Events sind möglich.
 
-Der Schutz des Teamcodes ermöglicht die Eingabe eines alphanumerischen Wertes durch die SPielenden, während der Teamcode selber in allen persistierten Dateien über die Refertenz erfolgt. Die Eingabe der Referenz selber ist, solange die Kennzeichnung `{protect:...}` verwendet wird, nicht zulässig.
+Der Schutz des Teamcodes ermöglicht die Eingabe eines alphanumerischen Wertes durch die SPielenden, während der Teamcode selber in allen persistierten Dateien über die Referenz erfolgt. Die Eingabe der Referenz selber ist, solange die Kennzeichnung `md5:...` als Präfix zum Teamcode verwendet wird, nicht zulässig. Ein Teamcode mit vorangestelltem `md5:` kann nicht durch Eingabe dieses Strings als gültiger Teamcode genutzt werden, es wird lediglich die nach einem Doppelpunkt `:` folgende Zeichenkette als verschlüsselter Teamcode verstanden.
 
-Da Teamcodes in Repositories gespeichert werden, können diese (für das System) sensiblen Informationen geschützt werden. Der 8-stellige Teamcode kann unter Angabe von `{protect:<md5-teamcode>}` geschützt werden. 
+Da Teamcodes in Repositories gespeichert werden, können diese (für das System) sensiblen Informationen geschützt werden. Der 8-stellige Teamcode kann unter Angabe von `md5:<md5-teamcode>` geschützt werden. 
 
-Der `md5-teamcode` stellt dabei den MD5 Hash-Wert des Teamcodes dar. Dieser wird auf der Computer-Konsolen über den Befehl `echo -n TEAMCODE|md5` gebildet. `TEAMCODE` ist hierbei der zu schützende Teamcode. In diesem Beispiel ergibt dies den Hash-Wert `a03e4f7892cf21d5be086fcaf75d1c88`.
+Der `md5-teamcode` stellt dabei den MD5 Hash-Wert des Teamcodes dar. Dieser wird auf der Computer-Konsolen über den Befehl `echo -n TEAMCODE|md5` gebildet. `TEAMCODE` ist hierbei der zu schützende Teamcode. In diesem Beispiel ergibt dies den Hash-Wert `a03e4f7892cf21d5be086fcaf75d1c88`, der mit `md5:a03e4f7892cf21d5be086fcaf75d1c88` als Teamcode anzugeben ist. Sollte der Teamcode als sogenannter Creator genutzt werden, ist in dem Bereich Creator ebenmfalls der MD5-Hash anzugeben, um den ursprünglichen Wert auch hier zu schützen.
 
 Ein weiter Schutzmechanismus stellt die Nutzung der `teamcodes.json` dar, in der die Übersetzung des Teamcodes in einen frei wählbaren Code ermöglicht wird. Hierbei kann die Übersetzung über den Bereich `eventid` -> `TEAMCODE` -> neuer Teamcode bzw. `global` -> `TEAMCODE` -> neuer Teamcode erfolgen. `TEAMCODE` ist hier der zu schützende Teamcode und `neuer Teamcode` der anstelle dessen zu nutzende Teamcode.
 
