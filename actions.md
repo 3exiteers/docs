@@ -56,15 +56,71 @@ Beispiel:
 
 ## variable
 
+### variable init
+
+```variable init: <Variable>=<Inhalt>```
+
+Mit der Aktion `variable init:<key>=<value>` können Variablen für das Team initial gesetzt werden, sollten diese nicht zuvor gesetzt worden sein. Die Angabe erfolgt dabei unter Angabe eines Variablennamens `<key>` und des zuzuweisenden Wertes `<value>`. Anstelle `variable` kann auch `variables`, `var` oder `vars` verwendet werden.
+
+Ist die Variable bereits gesetzt, behölt diese den bereitrs gespeicherten Wert. Nur falls die Variable nicht existiert, wird diese initialisiert. Hierbei muss die Variable für das Team existieren, egal welchen Wert diese zugewiesen bekommen hat (auch eine leere Zeichenfolge ist zulässig).
+
+Beispiel:
+
+`variable init: variable=value`
+
 ### variable set
 
 ```variable set: <Variable>=<Inhalt>```
 
-Mit der Aktion `variable set:<key>=<value>` können Variablen für das Team gesetzt werden. Die Angabe erfolgt dabei unter Angabe eines Variablennamens `<key>` und des zuzuweisenden Wertes `<value>`. Anstelle `variable` kann auch `variables`, `var` oder `vars` verwendet werden.
+Mit der Aktion `variable set:<key>=<value>` können Variablen für das Team gesetzt werden. Die Angabe erfolgt dabei unter Angabe eines Variablennamens `<key>` und des zuzuweisenden Wertes `<value>`. Anstelle `variable` kann auch `variables`, `var` oder `vars` verwendet werden. Die Variable wird in jedem Fall mit dem angegebenen Wert gesetzt.
 
 Beispiel:
 
 `variable clear: variable=value`
+
+### variable set len
+
+```variable set len: <Variable>```
+
+Mit der Aktion `variable set set:<key>=<list>` wird der Wert der Variabölen `key`auf die Länge de rListe der Variable `list` gesetzt. Mit dieser Angabe kann somit die Länge ermittelt und als numerischer Wert in einer Variablen gespeichert werden.
+
+Beispiel:
+
+`variable set len: variable=list` wobei `list` auf `1,3,7,9,10` gesetzt ist
+
+Die Längenbestimmung ermittelt 5 Elemente der Liste `list` und setzt dadurch die Variable `variable`auf den Wert `5`.
+
+### variable increment|inc
+
+```variable increment: <Variable>```
+
+Mit der Aktion `variable increment:<key>` wird der Wert der Variable als numerischer Wert angenommen und dieser um eins (1) im Wert erhöhrt.
+
+Beispiel:
+
+`variable increment: variable`
+`variable inc: variable`
+
+### variable decrement|dec
+
+```variable decrement: <Variable>```
+
+Mit der Aktion `variable decrement:<key>` wird der Wert der Variable als numerischer Wert angenommen und dieser um eins (1) im Wert verringert. Es können mit dieser Funktion auch negative Werte berechnet werden.
+
+Beispiel:
+
+`variable decrement: variable`
+`variable dec: variable`
+
+### variable dec0
+
+```variable dec0: <Variable>```
+
+Mit der Aktion `variable dec0:<key>` wird der Wert der Variable als numerischer Wert angenommen und dieser um eins (1) im Wert verringert, jedoch nur bis zum kleinsten zulässigen Wert Null (0). Mit dieser Angabe werden keine negativen Werte berechnet.
+
+Beispiel:
+
+`variable dec0: variable`
 
 ### variable clear
 
